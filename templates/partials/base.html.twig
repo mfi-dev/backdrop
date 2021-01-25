@@ -16,32 +16,12 @@
 </head>
 <body class="{% block body_classes %}{{ body_classes }}{% endblock %}">
     <a href="#main">Skip to main content</a>
-    <header id="page-header">
-        <nav class="navbar navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img alt="{{ site.title|e('html_attr') }}" src="{{ url('theme://images/logo.svg') }}">
-                </a>
-                <div class="navbar-nav">
-                {% for p in page.children.visible %}
-                    {% set active_page = (p.active or p.activeChild) ? true : false %}
-                    {% set nav_link_classes = 'nav-link' ~ (active_page ? ' active' : '') %}
-                    {% set nav_link_aria = active_page ? 'aria-current="page"' : '' %}
-                    <a href="{{ p.url }}" class="nav-link {{ nav_link_classes }}" {{ nav_link_aria }}>
-                        {{ p.menu }}
-                    </a>
-                {% endfor %}
-                </div>
-            </div>
-        </nav>
-    </header>
+    {% include 'partials/page_header.html.twig' %}
     <main id="main">
         {% block hero %}{% endblock %}
         {% block content %}{% endblock %}
     </main>
-    <footer id="container-fluid page-footer">
-        <p class="page-footer__copyright">&copy; 2021 Media Fusion, LLC &nbsp;|&nbsp; <a href="/privacy">Privacy Policy</a></p>
-    </footer>
+    {% include 'partials/page_footer.html.twig' %}
     {{ assets.js('bottom')|raw }}
 </body>
 </html>
