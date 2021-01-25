@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
+<head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+    {% include 'partials/favicon.html.twig' %}
+    {% do assets.addCss('theme://css-compiled/backdrop.css') %}
+    {% do assets.addCss('theme://vendor/line-awesome/css/line-awesome.min.css') %}
+    {% block assets deferred %}
+        {{ assets.css()|raw }}
+        {{ assets.js()|raw }}
+    {% endblock %}
+</head>
+<body class="{% block body_classes %}{{ body_classes }}{% endblock %}">
+    <a href="#main">Skip to main content</a>
+    <header id="page-header">
+        <nav class="navbar navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img alt="{{ site.title|e('html_attr') }}" src="{{ url('theme://images/logo.svg') }}">
+                </a>
+                <div class="navbar-nav">
+                {% for p in page.children.visible %}
+                    {% set active_page = (p.active or p.activeChild) ? true : false %}
+                    {% set nav_link_classes = 'nav-link' ~ (active_page ? ' active' : '') %}
+                    {% set nav_link_aria = active_page ? 'aria-current="page"' : '' %}
+                    <a href="{{ p.url }}" class="nav-link {{ nav_link_classes }}" {{ nav_link_aria }}>
+                        {{ p.menu }}
+                    </a>
+                {% endfor %}
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        {% block hero %}{% endblock %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer id="container-fluid page-footer">
+        <p class="page-footer__copyright">&copy; 2021 Media Fusion, LLC &nbsp;|&nbsp; <a href="/privacy">Privacy Policy</a></p>
+    </footer>
+    {{ assets.js('bottom')|raw }}
+</body>
+</html>

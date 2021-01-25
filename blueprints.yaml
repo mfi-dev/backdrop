@@ -1,0 +1,15 @@
+name: Backdrop
+slug: backdrop
+type: theme
+version: 0.1.0
+description: "Backdrop is a branded theme for Media Fusion Studio"
+icon: circle
+author:
+  name: Media Fusion
+  email: webmaster@fusiononline.com
+  url: https://fusiononline.com
+homepage: https://github.com/mfi-dev/backdrop
+license: Unlicensed
+
+dependencies:
+  - { name: grav, version: '>=1.7.3' }
