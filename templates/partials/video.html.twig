@@ -1,0 +1,19 @@
+<video controls preload="none" {% if poster %}poster="{{ poster }}"{% endif %}>
+    {% for source in sources %}
+        {% set video = media['videos://' ~ source.video] %}
+
+        {% if source.video ends with '.mp4' %}
+            {% set mime_type = 'video/mp4' %}
+        {% else if source.video ends with '.webm' %}
+            {% set mime_type = 'video/webm' %}
+        {% else %}
+            {% set mime_type = '' %}
+        {% endif %}
+
+        {% if video %}
+            <source src="{{ video.url() }}" type="{{ mime_type|e('html_attr') }}">
+        {% endif %}
+
+        This browser does not support the HTML5 video element.
+    {% endfor %}
+</video>

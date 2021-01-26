@@ -1,0 +1,18 @@
+<div class="hero position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4">
+            {{ heading }}
+        </h1>
+        {{ content|markdown }}
+    </div>
+    {% if featured_image and page.media[featured_image] %}
+        <div class="hero__featured-image">
+            {{ page.media.images[featured_image].html('', '', 'img-fluid') }}
+        </div>
+    {% endif %}
+    {% if featured_video %}
+        <div class="hero__featured-video">
+            {{ include('partials/video.html.twig', featured_video) }}
+        </div>
+    {% endif %}
+</div>
