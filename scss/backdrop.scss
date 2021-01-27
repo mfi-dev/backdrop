@@ -1,5 +1,6 @@
 // Boostrap variable overrides
 $primary: #3C1053;
+$headings-font-family: 'space_grotesk';
 
 // Required Bootstrap partials
 @import "../vendor/bootstrap/scss/functions";
@@ -19,3 +20,15 @@ $primary: #3C1053;
 @import "../vendor/bootstrap/scss/buttons";
 @import "../vendor/bootstrap/scss/nav";
 @import "../vendor/bootstrap/scss/navbar";
+
+// Helpers
+@import "../vendor/bootstrap/scss/helpers";
+
+// Fonts
+@import "../fonts/spacegrotesk/stylesheet.css";
+
+// Theme
+@import "overrides";
+@import "skip-nav";
+@import "page-header";
+@import "hero";

@@ -1,0 +1,21 @@
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  letter-spacing: -0.025em;
+}
+
+.lead {
+  font-family: $headings-font-family;
+}
+
+@include media-breakpoint-up(xl) {
+  :root {
+    font-size: 1.33333333333vw;
+  }
+
+  .container-fluid {
+    --bs-gutter-x: 1.5rem;
+  }
+
+  .row {
+    --bs-gutter-x: 3rem;
+  }
+}

@@ -15,7 +15,7 @@
     {% endblock %}
 </head>
 <body class="{% block body_classes %}{{ body_classes }}{% endblock %}">
-    <a href="#main">Skip to main content</a>
+    <a href="#main" id="skip-nav">Skip to main content</a>
     {% include 'partials/page_header.html.twig' %}
     <main id="main">
         {% block hero %}{% endblock %}

@@ -1,8 +1,8 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block hero %}
-    {% set hero_context = page.header.hero %}
-    {% set hero_context.heading = page.header.hero.heading|default(page.header.title) %}
+    {% set hero_heading = page.header.hero.heading|default(page.header.title) %}
+    {% set hero_context = page.header.hero|merge({'heading': hero_heading}) %}
     {{ include('partials/hero.html.twig', hero_context) }}
 {% endblock %}
 

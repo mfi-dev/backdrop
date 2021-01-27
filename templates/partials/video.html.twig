@@ -1,10 +1,11 @@
-<video controls preload="none" {% if poster %}poster="{{ poster }}"{% endif %}>
+{% set poster_url = poster and page.media[poster] ? page.media[poster].url() : null %}
+<video controls preload="none" {% if poster_url %}poster="{{ poster_url }}"{% endif %}>
     {% for source in sources %}
-        {% set video = media['videos://' ~ source.video] %}
+        {% set video = media['user://videos/' ~ source.video] %}
 
         {% if source.video ends with '.mp4' %}
             {% set mime_type = 'video/mp4' %}
-        {% else if source.video ends with '.webm' %}
+        {% elseif source.video ends with '.webm' %}
             {% set mime_type = 'video/webm' %}
         {% else %}
             {% set mime_type = '' %}

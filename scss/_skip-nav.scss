@@ -1,0 +1,14 @@
+#skip-nav {
+  position: absolute;
+  top: -4rem;
+  left: 0;
+  z-index: 1000;
+  padding: 1rem;
+  background-color: #fff;
+  transition: top 1s ease-out;
+
+  &:focus {
+    top: 0;
+    transition: top .1s ease-in; 
+  }
+}
