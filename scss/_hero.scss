@@ -1,14 +1,24 @@
 .hero {
-  &__heading {
-    text-transform: uppercase;
-  }
+  margin-bottom: $spacer * 3;
 
-  p {
-    @extend .lead; 
+  &__heading {
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
   }
 
   &__buttons > * {
     margin-right: $spacer / 2;
     margin-bottom: $spacer / 2;
+  }
+
+  &__feature {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  p {
+    @extend .lead; 
   }
 }

@@ -1,9 +1,29 @@
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  color: #000;
+  margin-top: $line-height-base * 1rem;
   letter-spacing: -0.025em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h6, .h6 {
+  font-weight: bolder;
+}
+
+hr {
+  margin-top: $spacer * 2;
+  margin-bottom: $spacer * 2;
+  opacity: 0.1;
 }
 
 .lead {
   font-family: $headings-font-family;
+
+  strong {
+    font-weight: bold;
+  }
 }
 
 @include media-breakpoint-up(xl) {
@@ -17,5 +37,17 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 
   .row {
     --bs-gutter-x: 3rem;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  body {
+    font-size: 0.875rem;
+  }
+}
+
+@include media-breakpoint-up(xxxl) {
+  body {
+    font-size: 0.75rem;
   }
 }

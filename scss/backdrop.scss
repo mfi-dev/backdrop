@@ -1,6 +1,16 @@
 // Boostrap variable overrides
-$primary: #3C1053;
+$line-height-base: 1.5;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1800px
+);
 $headings-font-family: 'space_grotesk';
+$primary: #3C1053;
 
 // Required Bootstrap partials
 @import "../vendor/bootstrap/scss/functions";
@@ -29,6 +39,8 @@ $headings-font-family: 'space_grotesk';
 
 // Theme
 @import "overrides";
+@import "base";
 @import "skip-nav";
 @import "page-header";
 @import "hero";
+@import "template";

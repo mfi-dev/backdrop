@@ -1916,6 +1916,219 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
+@media (min-width: 1800px) {
+  .col-xxxl {
+    flex: 1 0 0%;
+  }
+
+  .row-cols-xxxl-auto > * {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .row-cols-xxxl-1 > * {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .row-cols-xxxl-2 > * {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .row-cols-xxxl-3 > * {
+    flex: 0 0 auto;
+    width: 33.3333333333%;
+  }
+
+  .row-cols-xxxl-4 > * {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .row-cols-xxxl-5 > * {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+
+  .row-cols-xxxl-6 > * {
+    flex: 0 0 auto;
+    width: 16.6666666667%;
+  }
+
+  .col-xxxl-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .col-xxxl-1 {
+    flex: 0 0 auto;
+    width: 8.3333333333%;
+  }
+
+  .col-xxxl-2 {
+    flex: 0 0 auto;
+    width: 16.6666666667%;
+  }
+
+  .col-xxxl-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .col-xxxl-4 {
+    flex: 0 0 auto;
+    width: 33.3333333333%;
+  }
+
+  .col-xxxl-5 {
+    flex: 0 0 auto;
+    width: 41.6666666667%;
+  }
+
+  .col-xxxl-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .col-xxxl-7 {
+    flex: 0 0 auto;
+    width: 58.3333333333%;
+  }
+
+  .col-xxxl-8 {
+    flex: 0 0 auto;
+    width: 66.6666666667%;
+  }
+
+  .col-xxxl-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .col-xxxl-10 {
+    flex: 0 0 auto;
+    width: 83.3333333333%;
+  }
+
+  .col-xxxl-11 {
+    flex: 0 0 auto;
+    width: 91.6666666667%;
+  }
+
+  .col-xxxl-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .offset-xxxl-0 {
+    margin-left: 0;
+  }
+
+  .offset-xxxl-1 {
+    margin-left: 8.3333333333%;
+  }
+
+  .offset-xxxl-2 {
+    margin-left: 16.6666666667%;
+  }
+
+  .offset-xxxl-3 {
+    margin-left: 25%;
+  }
+
+  .offset-xxxl-4 {
+    margin-left: 33.3333333333%;
+  }
+
+  .offset-xxxl-5 {
+    margin-left: 41.6666666667%;
+  }
+
+  .offset-xxxl-6 {
+    margin-left: 50%;
+  }
+
+  .offset-xxxl-7 {
+    margin-left: 58.3333333333%;
+  }
+
+  .offset-xxxl-8 {
+    margin-left: 66.6666666667%;
+  }
+
+  .offset-xxxl-9 {
+    margin-left: 75%;
+  }
+
+  .offset-xxxl-10 {
+    margin-left: 83.3333333333%;
+  }
+
+  .offset-xxxl-11 {
+    margin-left: 91.6666666667%;
+  }
+
+  .g-xxxl-0,
+.gx-xxxl-0 {
+    --bs-gutter-x: 0;
+  }
+
+  .g-xxxl-0,
+.gy-xxxl-0 {
+    --bs-gutter-y: 0;
+  }
+
+  .g-xxxl-1,
+.gx-xxxl-1 {
+    --bs-gutter-x: 0.25rem;
+  }
+
+  .g-xxxl-1,
+.gy-xxxl-1 {
+    --bs-gutter-y: 0.25rem;
+  }
+
+  .g-xxxl-2,
+.gx-xxxl-2 {
+    --bs-gutter-x: 0.5rem;
+  }
+
+  .g-xxxl-2,
+.gy-xxxl-2 {
+    --bs-gutter-y: 0.5rem;
+  }
+
+  .g-xxxl-3,
+.gx-xxxl-3 {
+    --bs-gutter-x: 1rem;
+  }
+
+  .g-xxxl-3,
+.gy-xxxl-3 {
+    --bs-gutter-y: 1rem;
+  }
+
+  .g-xxxl-4,
+.gx-xxxl-4 {
+    --bs-gutter-x: 1.5rem;
+  }
+
+  .g-xxxl-4,
+.gy-xxxl-4 {
+    --bs-gutter-y: 1.5rem;
+  }
+
+  .g-xxxl-5,
+.gx-xxxl-5 {
+    --bs-gutter-x: 3rem;
+  }
+
+  .g-xxxl-5,
+.gy-xxxl-5 {
+    --bs-gutter-y: 3rem;
+  }
+}
 .table {
   --bs-table-bg: transparent;
   --bs-table-striped-color: #212529;
@@ -2107,6 +2320,12 @@ progress {
 }
 @media (max-width: 1399.98px) {
   .table-responsive-xxl {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+@media (max-width: 1799.98px) {
+  .table-responsive-xxxl {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -3601,6 +3820,28 @@ textarea.form-control-lg {
     display: none;
   }
 }
+@media (min-width: 1800px) {
+  .navbar-expand-xxxl {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .navbar-expand-xxxl .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-expand-xxxl .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+  .navbar-expand-xxxl .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .navbar-expand-xxxl .navbar-collapse {
+    display: flex !important;
+  }
+  .navbar-expand-xxxl .navbar-toggler {
+    display: none;
+  }
+}
 .navbar-expand {
   flex-wrap: nowrap;
   justify-content: flex-start;
@@ -3844,6 +4085,13 @@ textarea.form-control-lg {
     z-index: 1020;
   }
 }
+@media (min-width: 1800px) {
+  .sticky-xxxl-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+}
 .visually-hidden,
 .visually-hidden-focusable:not(:focus) {
   position: absolute !important;
@@ -3874,11 +4122,29 @@ textarea.form-control-lg {
 }
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  color: #000;
+  margin-top: 1.5rem;
   letter-spacing: -0.025em;
+}
+h6:first-child, .h6:first-child, h5:first-child, .h5:first-child, h4:first-child, .h4:first-child, h3:first-child, .h3:first-child, h2:first-child, .h2:first-child, h1:first-child, .h1:first-child {
+  margin-top: 0;
+}
+
+h6, .h6 {
+  font-weight: bolder;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  opacity: 0.1;
 }
 
 .lead, .hero p {
   font-family: "space_grotesk";
+}
+.lead strong, .hero p strong {
+  font-weight: bold;
 }
 
 @media (min-width: 1200px) {
@@ -3894,6 +4160,30 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     --bs-gutter-x: 3rem;
   }
 }
+@media (min-width: 1400px) {
+  body {
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 1800px) {
+  body {
+    font-size: 0.75rem;
+  }
+}
+.list-checks {
+  list-style: none;
+}
+.list-checks ul {
+  list-style: none;
+}
+.list-checks li::before {
+  content: "";
+  margin-right: 0.25em;
+  margin-left: -1.25em;
+  font-family: "Line Awesome Free";
+  font-weight: 900;
+}
+
 #skip-nav {
   position: absolute;
   top: -4rem;
@@ -3916,12 +4206,46 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   height: auto;
 }
 
+.hero {
+  margin-bottom: 3rem;
+}
 .hero__heading {
+  font-weight: bold;
+  line-height: 1;
   text-transform: uppercase;
 }
 .hero__buttons > * {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
+}
+@media (max-width: 991.98px) {
+  .hero__feature {
+    display: none;
+  }
+}
+.template--landing main > section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.template--landing main > section:nth-of-type(odd) {
+  position: relative;
+  background-color: #f4f9f6;
+  overflow: hidden;
+}
+.template--landing main > section canvas {
+  position: absolute;
+  top: 0;
+  left: 66%;
+}
+@media (min-width: 992px) {
+  .template--landing main > section canvas {
+    left: 50%;
+  }
+}
+@media (max-width: 767.98px) {
+  .template--landing main > section canvas {
+    display: none !important;
+  }
 }
 
 /*# sourceMappingURL=backdrop.css.map */

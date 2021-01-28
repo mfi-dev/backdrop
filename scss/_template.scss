@@ -1,0 +1,26 @@
+.template--landing {
+  main > section {
+    padding-top: $spacer * 4;
+    padding-bottom: $spacer * 4;
+    
+    &:nth-of-type(odd) {
+      position: relative;
+      background-color: tint-color($green, 95%);
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 66%;
+
+      @include media-breakpoint-up(lg) {
+        left: 50%;
+      }
+
+      @include media-breakpoint-down(md) {
+        display: none !important;
+      }
+    }
+  }
+}

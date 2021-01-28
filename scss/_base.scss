@@ -1,0 +1,15 @@
+.list-checks {
+  list-style: none;
+
+  ul {
+    list-style: none;
+  }
+
+  li::before {
+    content: "\f058";
+    margin-right: 0.25em;
+    margin-left: -1.25em;
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+  }
+}

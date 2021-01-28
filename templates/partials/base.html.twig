@@ -9,6 +9,8 @@
     {% include 'partials/favicon.html.twig' %}
     {% do assets.addCss('theme://css-compiled/backdrop.css') %}
     {% do assets.addCss('theme://vendor/line-awesome/css/line-awesome.min.css') %}
+    {% do assets.addJs('theme://vendor/three.js', { group: 'bottom', priority: 100 }) %}
+    {% do assets.addJs('theme://js/backdrop.js', { group: 'bottom', priority: 101 }) %}
     {% block assets deferred %}
         {{ assets.css()|raw }}
         {{ assets.js()|raw }}
