@@ -1,6 +1,4 @@
 .hero {
-  margin-bottom: $spacer * 3;
-
   &__heading {
     font-weight: bold;
     line-height: 1;
@@ -19,6 +17,24 @@
   }
 
   p {
-    @extend .lead; 
+    @extend .lead;
+  }
+
+  .video {
+    display: none;
+
+    &__mesh {
+      left: calc(var(--bs-gutter-x) * -1);
+    }
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+
+    @include media-breakpoint-up(xl) {
+      &__mesh {
+        left: calc(var(--bs-gutter-x) / -2);
+      }
+    }
   }
 }

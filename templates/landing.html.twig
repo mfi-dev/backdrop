@@ -1,20 +1,3 @@
-{% extends 'partials/base.html.twig' %}
+{% extends 'modular.html.twig' %}
 
-{% block body_classes %}{{ body_classes }} template--landing{% endblock %}
-
-{% block hero %}
-    {% set hero_heading = page.header.hero.heading|default(page.header.title) %}
-    {% set hero_context = page.header.hero|merge({'heading': hero_heading}) %}
-    {{ include('partials/hero.html.twig', hero_context) }}
-{% endblock %}
-
-{% block content %}
-    {% for module in page.collection() %}
-        <section class="container-fluid" id="{{ module.menu|hyphenize }}">
-            {{ module.content|raw }}
-        </section>
-    {% endfor %}
-    <section class="container-fluid">
-        {{ page.content|raw }}
-    </section>
-{% endblock %}
+{% set body_classes = body_classes ~ ' page-template-landing' %}

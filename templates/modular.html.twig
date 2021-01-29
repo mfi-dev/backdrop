@@ -1,0 +1,18 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set body_classes = body_classes ~ ' page-template-modular' %}
+
+{% block content %}
+    {% for module in page.collection() %}
+        {% set section_classes = module.header.flush ? 'section--flush' : '' %}
+        {% set template_classes = 'template-' ~ module.template|hyphenize %}
+        <section class="container-fluid section {{ section_classes }} {{ template_classes }}" id="{{ module.menu|hyphenize }}">
+            {{ module.content|raw }}
+        </section>
+    {% endfor %}
+    {% if page.content %}
+    <section class="container-fluid">
+        {{ page.content|raw }}
+    </section>
+    {% endif %}
+{% endblock %}

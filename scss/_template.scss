@@ -1,12 +1,36 @@
-.template--landing {
-  main > section {
+.page-template-modular {
+  .section {
     padding-top: $spacer * 4;
     padding-bottom: $spacer * 4;
-    
-    &:nth-of-type(odd) {
+
+    &--flush {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.page-template-landing {
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section {
+    grid-column: span 3;
+
+    &:nth-child(2) {
       position: relative;
       background-color: tint-color($green, 95%);
       overflow: hidden;
+    }
+
+    &:nth-child(3) {
+      background-color: $yellow-400;
+    }
+
+    &:nth-child(5) {
+      background-color: tint-color($green, 95%);
     }
 
     canvas {
@@ -20,6 +44,42 @@
 
       @include media-breakpoint-down(md) {
         display: none !important;
+      }
+    }
+  }
+
+  @include media-breakpoint-between(md, lg) {
+    .section {
+      &:nth-child(4) {
+        grid-column: span 2;
+
+        .illustrated {
+          height: 100%;
+        }
+
+        .col-md-8,
+        .col-md-4 {
+          @include make-col(6);
+        }
+      }
+
+      &:nth-child(5) {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    main {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section {
+      grid-column: span 2;
+
+      &:nth-child(4),
+      &:nth-child(5) {
+        grid-column: span 1;
       }
     }
   }
