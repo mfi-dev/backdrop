@@ -1,69 +1,61 @@
-.page-template-modular {
-  .section {
-    padding-top: $spacer * 4;
-    padding-bottom: $spacer * 4;
-
-    &--flush {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-}
-
-.page-template-landing {
+.landing-page {
   main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
+  
+    & > * {
+      grid-column: span 3;
 
-  .section {
-    grid-column: span 3;
-
-    &:nth-child(2) {
-      position: relative;
-      background-color: tint-color($green, 95%);
-      overflow: hidden;
-    }
-
-    &:nth-child(3) {
-      background-color: $yellow-400;
-    }
-
-    &:nth-child(5) {
-      background-color: tint-color($green, 95%);
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 66%;
-
-      @include media-breakpoint-up(lg) {
-        left: 50%;
+      &:nth-child(2) {
+        background-color: tint-color($green, 95%);
       }
 
-      @include media-breakpoint-down(md) {
-        display: none !important;
-      }
-    }
-  }
-
-  @include media-breakpoint-between(md, lg) {
-    .section {
       &:nth-child(4) {
-        grid-column: span 2;
-
-        .illustrated {
-          height: 100%;
-        }
-
-        .col-md-8,
-        .col-md-4 {
-          @include make-col(6);
-        }
+        background-color: $yellow-400;
       }
 
-      &:nth-child(5) {
+      &:nth-child(7) {
+        background-color: tint-color($green, 95%);
+        background-image: url('../images/graph.svg');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+  .animation-module canvas {
+    position: absolute;
+    top: 0;
+    left: 66%;
+
+    @include media-breakpoint-up(lg) {
+      left: 50%;
+    }
+
+    @include media-breakpoint-down(md) {
+      display: none !important;
+    }
+  }
+
+  .video__mesh {
+    display: none;
+  }
+
+  .hero-module .video__mesh {
+    display: block;
+  }
+
+  @include media-breakpoint-up(md) {
+    main > * {
+      &:nth-child(3) {
+        grid-column: span 2;
+      }
+
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7) {
         grid-column: span 1;
       }
     }
@@ -71,15 +63,15 @@
 
   @include media-breakpoint-up(lg) {
     main {
-      grid-template-columns: repeat(2, 1fr);
-    }
+      grid-template-columns: repeat(4, 1fr);
 
-    .section {
-      grid-column: span 2;
+      & > * {
+        grid-column: span 4;
 
-      &:nth-child(4),
-      &:nth-child(5) {
-        grid-column: span 1;
+        &:nth-child(4),
+        &:nth-child(5) {
+          grid-column: span 2;
+        }
       }
     }
   }

@@ -26,17 +26,19 @@ hr {
   }
 }
 
-@include media-breakpoint-up(xl) {
-  :root {
-    font-size: 1.33333333333vw;
-  }
-
+@include media-breakpoint-up(md) {
   .container-fluid {
     --bs-gutter-x: 1.5rem;
   }
 
   .row {
     --bs-gutter-x: 3rem;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  :root {
+    font-size: 1.33333333333vw;
   }
 }
 

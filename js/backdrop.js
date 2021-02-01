@@ -55,8 +55,8 @@
       }
     }
 
-    if (document.querySelector('#connect-with-your-customers-vendors-and-prospects')) {
-      cubeAnimation(document.querySelector('#connect-with-your-customers-vendors-and-prospects'));
+    if (document.querySelector('.animation-module--cube')) {
+      cubeAnimation(document.querySelector('.animation-module--cube'));
     }
   });
 })();

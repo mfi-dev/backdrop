@@ -1,6 +1,14 @@
-<div class="rhythm {{ body_classes }}">
+{% if page.header.featured_video %}
+    {{ include('partials/video.html.twig', page.header.featured_video) }}
+{% elseif page.header.featured_image and page.media[page.header.featured_image] %}
+    {{ page.media[page.header.featured_image].html('', '', 'img-fluid') }}
+{% endif %}
+<div id="{{ page.menu|hyphenize }}" class="module rhythm container-fluid {{ body_classes }}">
     {% if page.title %}
-        <h2>{{ page.title|e('html') }}</h2>
+        <h2 class="module__heading">{{ page.title|e('html') }}</h2>
     {% endif %}
     {{ content|raw }}
+    {% if page.header.cta %}
+        <p>{{ include('partials/cta.html.twig') }}</p>
+    {% endif %}
 </div>

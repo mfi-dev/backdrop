@@ -1,0 +1,23 @@
+.module {
+  padding-top: $spacer * 4;
+  padding-bottom: $spacer * 4;
+
+  .row {
+    align-items: center;
+  }
+
+  .video {
+    height: 100%;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__mesh {
+      display: none;
+    }
+  }
+}

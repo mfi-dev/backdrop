@@ -1,0 +1,10 @@
+<div id="{{ page.menu|hyphenize }}" class="module animation-module animation-module--cube rhythm container-fluid {{ body_classes }}">
+    <div class="row">
+        <div class="col-md-8 col-lg-6">
+            {% if page.title %}
+                <h2>{{ page.title|e('html') }}</h2>
+            {% endif %}
+            {{ content|raw }}
+        </div>
+    </div>
+</div>

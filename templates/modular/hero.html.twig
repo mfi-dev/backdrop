@@ -1,22 +1,31 @@
-<div class="hero">
-    <div class="row" style="align-items: center">
-        <div class="col-lg-6">
-            <h1 class="hero__heading display-2">
+<div class="module hero-module container-fluid {{ body_classes }}">
+    <div class="row">
+        <div class="hero-module__text col-lg-6">
+            <h1 class="hero-module__heading display-2">
                 {{ page.title }}
             </h1>
             {{ content|markdown }}
-            <p class="hero__buttons">
-                <a href="#request-a-quote" class="btn btn-primary">Request a quote</a>
-                <a href="#" class="btn btn-outline-primary"><i class="la la-play"></i> Watch the video</a>
-            </p>
-        </div>
-        <div class="col-lg-6">
-            {% if page.header.featured_image and page.media[page.header.featured_image] %}
-                {{ page.media[page.header.featured_image].html('', '', 'img-fluid') }}
+            {% if page.header.cta or page.header.featured_video %}
+                <p class="hero-module__buttons">
+                    {% if page.header.cta %}
+                        {{ include('partials/cta.html.twig') }}
+                    {% endif %}
+                    {% if page.header.featured_video %}
+                        <a href="#" class="btn btn-outline-primary play-button">
+                            <i class="la la-play"></i> Watch the video
+                        </a>
+                    {% endif %}
+                </p>
             {% endif %}
-            {% if page.header.featured_video %}
-                {{ include('partials/video.html.twig', page.header.featured_video) }}
-            {% endif %}
         </div>
+        {% if page.header.featured_video or page.header.featured_image %}
+            <div class="hero-module__media col-lg-6">
+                {% if page.header.featured_video %}
+                    {{ include('partials/video.html.twig', page.header.featured_video) }}
+                {% elseif page.header.featured_image and page.media[page.header.featured_image] %}
+                    {{ page.media[page.header.featured_image].html('', '', 'img-fluid') }}
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 </div>
