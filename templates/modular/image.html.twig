@@ -1,0 +1,11 @@
+{% extends 'partials/module.html.twig' %}
+
+{% set body_classes = body_classes ~ ' image-module' %}
+
+{% block content %}
+    {% set classes = page.header.ratio ? 'ratio' : 'ratio ratio-16x9' %}
+    {% set styles = page.header.ratio ? '--aspect-ratio: ' ~ page.header.ratio : '' %}
+    <div class="{{ classes }}" style="{{ styles }}">
+        {{ page.media[page.header.image].html('', page.title, 'img-fluid')|raw }}
+    </div>
+{% endblock %}

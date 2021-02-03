@@ -1,0 +1,12 @@
+.image-module {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .ratio {
+    height: 100%;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}

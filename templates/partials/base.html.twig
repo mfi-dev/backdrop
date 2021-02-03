@@ -9,8 +9,15 @@
     {% include 'partials/favicon.html.twig' %}
     {% do assets.addCss('theme://css-compiled/backdrop.css') %}
     {% do assets.addCss('theme://vendor/line-awesome/css/line-awesome.min.css') %}
-    {% do assets.addJs('theme://vendor/three.js', { group: 'bottom', priority: 100 }) %}
-    {% do assets.addJs('theme://js/backdrop.js', { group: 'bottom', priority: 101 }) %}
+    {% do assets.addJs('theme://vendor/bootstrap/js/dist/dom/event-handler.js', { group: 'bottom', priority: 103 }) %}
+    {% do assets.addJs('theme://vendor/bootstrap/js/dist/dom/data.js', { group: 'bottom', priority: 103 }) %}
+    {% do assets.addJs('theme://vendor/bootstrap/js/dist/dom/manipulator.js', { group: 'bottom', priority: 103 }) %}
+    {% do assets.addJs('theme://vendor/bootstrap/js/dist/dom/selector-engine.js', { group: 'bottom', priority: 103 }) %}
+    {% do assets.addJs('theme://vendor/bootstrap/js/dist/modal.js', { group: 'bottom', priority: 102 }) %}
+    {% do assets.addJs('theme://vendor/three.js', { group: 'bottom', priority: 101 }) %}
+    {% do assets.addJs('theme://js/autoplay.js', { group: 'bottom', priority: 101 }) %}
+    {% do assets.addJs('theme://js/lightbox.js', { group: 'bottom', priority: 101 }) %}
+    {% do assets.addJs('theme://js/animation.js', { group: 'bottom', priority: 100 }) %}
     {% block assets deferred %}
         {{ assets.css()|raw }}
         {{ assets.js()|raw }}

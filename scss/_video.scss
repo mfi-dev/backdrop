@@ -1,34 +1,32 @@
-.video {
-  &__media {
-    z-index: 2;
-    object-fit: cover;
-
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__mesh {
-    top: var(--bs-gutter-x);
+@mixin video-mesh {
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(var(--bs-gutter-x) / 2);
     left: calc(var(--bs-gutter-x) / 2);
     z-index: 1;
+    display: block;
     opacity: 0.2;
+    height: 100%;
     width: calc(100% - var(--bs-gutter-x));
-  }
+    background-image: url('../images/mesh.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 
-  @include media-breakpoint-up(md) {
-    &__mesh {
-      left: var(--bs-gutter-x);
+    @include media-breakpoint-up(md) {
       width: 100%;
     }
   }
+}
 
-  @include media-breakpoint-up(xl) {
-    &__mesh {
-      top: calc(var(--bs-gutter-x) / 2);
-      left: calc(var(--bs-gutter-x) / 2);
-    }
+.video {
+  z-index: 2;
+  object-fit: cover;
+
+  &__cover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }

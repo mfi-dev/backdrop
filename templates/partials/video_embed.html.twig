@@ -1,0 +1,11 @@
+<iframe allow="autoplay"
+    class="video video--embed"
+    data-src="{{ embed_url|e('html_attr') }}"
+    frameborder="0"
+    title="{{ title }}"
+    width="100%"
+>
+    {% if poster and page.media[poster] %}
+        {{ page.media[poster].html('', title, 'video__cover')|raw }}
+    {% endif %}
+</iframe>

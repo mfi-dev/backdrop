@@ -1,0 +1,25 @@
+.lightbox {
+  .modal-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0;
+  }
+
+  .modal-body {
+    padding-right: var(--bs-gutter-x);
+    padding-left: var(--bs-gutter-x);
+
+    @media(min-aspect-ratio: 1/1) {
+      padding-right: calc(var(--bs-gutter-x) + 8vw);
+      padding-left: calc(var(--bs-gutter-x) + 8vw);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .modal-body {
+      padding-right: calc(var(--bs-gutter-x) + 8vw);
+      padding-left: calc(var(--bs-gutter-x) + 8vw);
+    }
+  }
+}

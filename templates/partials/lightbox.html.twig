@@ -1,0 +1,17 @@
+{% set modal_id = random(1, 100000) %}
+<button class="btn btn-outline-primary video-button"
+    data-bs-toggle="modal"
+    data-bs-target="#lightbox-{{ modal_id }}"
+>
+    <i class="la la-play"></i> {{ cta|default('Watch the video') }}
+</button>
+<div class="lightbox modal fade" id="lightbox-{{ modal_id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-header">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            {{ include('partials/video.html.twig') }}
+        </div>
+    </div>
+</div>

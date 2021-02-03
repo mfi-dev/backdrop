@@ -1,14 +1,15 @@
 {% extends 'partials/module.html.twig' %}
 
-{% set body_classes = body_classes ~ ' animation-module animation-module--cube rhythm container-fluid' %}
+{% set body_classes = body_classes ~ ' contact-module rhythm container-fluid' %}
 
 {% block content %}
     <div class="row">
         <div class="col-md-8 col-lg-6">
             {% if page.title %}
-                <h2 class="module__heading">{{ page.title|e('html') }}</h2>
+                <h2 class="module__heading">{{ page.title|default('Request a quote')|e('html') }}</h2>
             {% endif %}
             {{ content|raw }}
+            {{ include('forms/form.html.twig') }}
         </div>
     </div>
 {% endblock %}

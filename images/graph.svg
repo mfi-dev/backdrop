@@ -4,8 +4,8 @@
 	 viewBox="0 0 1008 648" style="enable-background:new 0 0 1008 648;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;stroke:#999;stroke-miterlimit:10;opacity:0.1;}
-	.st1{fill:#aba;opacity:0.1;}
-	.st2{fill:#bcb;opacity:0.1;}
+	.st1{fill:#aba;opacity:0.15;}
+	.st2{fill:#bcb;opacity:0.15;}
 </style>
 <line vector-effect="non-scaling-stroke" class="st0" x1="0" y1="72" x2="1008" y2="72"/>
 <line vector-effect="non-scaling-stroke" class="st0" x1="0" y1="144" x2="1008" y2="144"/>
@@ -15,8 +15,8 @@
 <line vector-effect="non-scaling-stroke" class="st0" x1="0" y1="432" x2="1008" y2="432"/>
 <line vector-effect="non-scaling-stroke" class="st0" x1="0" y1="504" x2="1008" y2="504"/>
 <line vector-effect="non-scaling-stroke" class="st0" x1="0" y1="576" x2="1008" y2="576"/>
-<polygon vector-effect="non-scaling-stroke" class="st2" points="1008,648 0,648 72,524 144,556 216,442 288,514 360,226 432,370 504,278 
-	576,422 648,514 720,442 792,514 864,298 936,226 1008,82 "/>
-<polygon vector-effect="non-scaling-stroke" class="st1" points="1008,648 0,648 0,452 72,340 144,340 216,278 288,452 360,390 
-	432,514 504,412 576,534 648,350 720,350 792,298 864,412 936,442 1008,298 "/>
+<polygon vector-effect="non-scaling-stroke" class="st2" points="1008,648 0,648 72,624 144,648 216,542 288,614 360,326 432,470 504,378 
+	576,522 648,614 720,542 792,614 864,398 936,326 1008,182 "/>
+<polygon vector-effect="non-scaling-stroke" class="st1" points="1008,648 0,648 0,552 72,440 144,440 216,378 288,552 360,490 
+	432,614 504,512 576,634 648,450 720,450 792,398 864,512 936,542 1008,398 "/>
 </svg>

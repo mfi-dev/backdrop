@@ -1,0 +1,7 @@
+{% extends 'partials/module.html.twig' %}
+
+{% set body_classes = body_classes ~ ' video-module' %}
+
+{% block content %}
+    {{ include('partials/video.html.twig', page.header.video) }}
+{% endblock %}

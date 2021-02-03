@@ -1,4 +1,8 @@
-<div class="module hero-module container-fluid {{ body_classes }}">
+{% extends 'partials/module.html.twig' %}
+
+{% set body_classes = body_classes ~ ' hero-module container-fluid' %}
+
+{% block content %}
     <div class="row">
         <div class="hero-module__text col-lg-6">
             <h1 class="hero-module__heading display-2">
@@ -6,16 +10,14 @@
             </h1>
             {{ content|markdown }}
             {% if page.header.cta or page.header.featured_video %}
-                <p class="hero-module__buttons">
+                <div class="hero-module__buttons">
                     {% if page.header.cta %}
                         {{ include('partials/cta.html.twig') }}
                     {% endif %}
                     {% if page.header.featured_video %}
-                        <a href="#" class="btn btn-outline-primary play-button">
-                            <i class="la la-play"></i> Watch the video
-                        </a>
+                        {{ include('partials/lightbox.html.twig', page.header.featured_video) }}
                     {% endif %}
-                </p>
+                </div>
             {% endif %}
         </div>
         {% if page.header.featured_video or page.header.featured_image %}
@@ -28,4 +30,4 @@
             </div>
         {% endif %}
     </div>
-</div>
+{% endblock %}

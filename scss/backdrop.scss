@@ -10,6 +10,7 @@ $grid-breakpoints: (
   xxxl: 1800px
 );
 $headings-font-family: 'space_grotesk';
+$modal-backdrop-opacity: 0.9;
 $primary: #3C1053;
 
 // Required Bootstrap partials
@@ -30,6 +31,8 @@ $primary: #3C1053;
 @import "../vendor/bootstrap/scss/buttons";
 @import "../vendor/bootstrap/scss/nav";
 @import "../vendor/bootstrap/scss/navbar";
+@import "../vendor/bootstrap/scss/close";
+@import "../vendor/bootstrap/scss/modal";
 
 // Helpers
 @import "../vendor/bootstrap/scss/helpers";
@@ -43,8 +46,12 @@ $primary: #3C1053;
 @import "skip-nav";
 @import "page-header";
 @import "page-footer";
+@import "lightbox";
 @import "video";
 @import "modules/default";
+@import "modules/contact";
 @import "modules/hero";
 @import "modules/animation";
+@import "modules/image";
+@import "modules/video";
 @import "template";

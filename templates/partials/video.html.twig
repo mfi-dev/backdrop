@@ -1,37 +1,11 @@
-{% if ratio %}
-<div class="video ratio" style="--aspect-ratio: {{ ratio|e('html_attr') }}">
-{% else %}
-<div class="video ratio ratio-16x9">
+{% if sources or embed_url %}
+    {% set classes = ratio ? 'video-container ratio' : 'video-container ratio ratio-16x9' %}
+    {% set styles = ratio ? '--aspect-ratio: ' ~ ratio : '' %}
+    <div class="{{ classes }}" style="{{ styles }}">
+        {% if sources %}
+            {{ include('partials/video_html.html.twig') }}
+        {% else %}
+            {{ include('partials/video_embed.html.twig') }}
+        {% endif %}
+    </div>
 {% endif %}
-    {% if sources %}
-        {% set poster_url = poster and page.media[poster] ? page.media[poster].url() : '' %}
-        {% set attributes = autoplay ? 'data-autoplay loop muted playsinline' : 'controls' %}
-        {% set label = description ? 'aria-label="' ~ description|e('html_attr') ~ '"' : '' %}
-        <video {{ attributes }} {{ label }} class="video__media" preload="none" poster="{{ poster_url|e('html_attr') }}">
-            {% for source in sources %}
-                {% set video = media['user://videos/' ~ source.video] %}
-
-                {% if source.video ends with '.mp4' %}
-                    {% set mime_type = 'video/mp4' %}
-                {% elseif source.video ends with '.webm' %}
-                    {% set mime_type = 'video/webm' %}
-                {% else %}
-                    {% set mime_type = '' %}
-                {% endif %}
-
-                {% if video %}
-                    <source src="{{ video.url() }}" type="{{ mime_type|e('html_attr') }}">
-                {% endif %}
-
-                This browser does not support the HTML5 video element.
-            {% endfor %}
-        </video>
-    {% elseif embed_url %}
-        <a href="{{ embed_url|e('html_attr') }}" class="video__media">
-            {% if poster and page.media[poster] %}
-                {{ page.media[poster].html('', description, 'img-fluid')|raw }}
-            {% endif %}
-        </a>
-    {% endif %}
-    <img alt="" class="video__mesh" src="{{ media['theme://images/mesh.svg'].url|e }}" width="1280" height="720">
-</div>

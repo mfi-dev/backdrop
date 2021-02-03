@@ -26,6 +26,10 @@ hr {
   }
 }
 
+.form-field {
+  margin-bottom: $spacer;
+}
+
 @include media-breakpoint-up(md) {
   .container-fluid {
     --bs-gutter-x: 1.5rem;

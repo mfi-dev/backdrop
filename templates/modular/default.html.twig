@@ -1,14 +1,20 @@
-{% if page.header.featured_video %}
-    {{ include('partials/video.html.twig', page.header.featured_video) }}
-{% elseif page.header.featured_image and page.media[page.header.featured_image] %}
-    {{ page.media[page.header.featured_image].html('', '', 'img-fluid') }}
-{% endif %}
-<div id="{{ page.menu|hyphenize }}" class="module rhythm container-fluid {{ body_classes }}">
+{% extends 'partials/module.html.twig' %}
+
+{% set body_classes = body_classes ~ ' rhythm container-fluid' %}
+
+{% block content %}
     {% if page.title %}
         <h2 class="module__heading">{{ page.title|e('html') }}</h2>
     {% endif %}
     {{ content|raw }}
-    {% if page.header.cta %}
-        <p>{{ include('partials/cta.html.twig') }}</p>
+    {% if page.header.cta or page.header.featured_video %}
+        <div>
+            {% if page.header.cta %}
+                {{ include('partials/cta.html.twig') }}
+            {% endif %}
+            {% if page.header.featured_video and not page.header.featured_video.autoplay %}
+                {{ include('partials/lightbox.html.twig', page.header.featured_video) }}
+            {% endif %}
+        </div>
     {% endif %}
-</div>
+{% endblock %}

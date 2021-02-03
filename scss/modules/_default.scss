@@ -21,3 +21,10 @@
     }
   }
 }
+
+.image-module + .module,
+.video-module + .module {
+  @include media-breakpoint-down(md) {
+    padding-top: $spacer * 2;
+  }
+}
