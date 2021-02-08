@@ -1,0 +1,16 @@
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+  &__item {
+    grid-column: span 1;
+    margin-bottom: $spacer * 2;
+    padding-left: $spacer * 1.5;
+    padding-right: $spacer * 1.5;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

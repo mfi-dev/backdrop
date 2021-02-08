@@ -1,0 +1,56 @@
+.logo-grid-module {
+  position: relative;
+
+  .module__kicker {
+    position: absolute;
+    top: 6ch;
+    left: $spacer * 0.5;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    font-weight: 300;
+    opacity: 0.3;
+  }
+
+  .module__heading {
+    min-width: 50%;
+    margin-top: 0;
+    margin-bottom: $spacer * 2;
+    text-align: center;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    align-items: center;
+
+    .module__heading {
+      margin-bottom: 0;
+      min-width: 33%;
+      text-align: left;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .module__kicker {
+      left: $spacer * 1.2;
+    }
+
+    .logo-grid {
+      margin-left: $spacer;
+      align-items: center;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .module__heading {
+      min-width: 50%;
+    }
+
+    .logo-grid {
+      display: flex;
+
+      &__item {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

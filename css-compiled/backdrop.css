@@ -4587,6 +4587,21 @@ hr {
   }
 }
 
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+.logo-grid__item {
+  grid-column: span 1;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.logo-grid__item:last-child {
+  margin-bottom: 0;
+}
+
 .video {
   z-index: 2;
   object-fit: cover;
@@ -4686,6 +4701,56 @@ hr {
   object-fit: cover;
 }
 
+.logo-grid-module {
+  position: relative;
+}
+.logo-grid-module .module__kicker {
+  position: absolute;
+  top: 6ch;
+  left: 0.5rem;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  font-weight: 300;
+  opacity: 0.3;
+}
+.logo-grid-module .module__heading {
+  min-width: 50%;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 576px) {
+  .logo-grid-module {
+    display: flex;
+    align-items: center;
+  }
+  .logo-grid-module .module__heading {
+    margin-bottom: 0;
+    min-width: 33%;
+    text-align: left;
+  }
+}
+@media (min-width: 768px) {
+  .logo-grid-module .module__kicker {
+    left: 1.2rem;
+  }
+  .logo-grid-module .logo-grid {
+    margin-left: 1rem;
+    align-items: center;
+  }
+}
+@media (min-width: 992px) {
+  .logo-grid-module .module__heading {
+    min-width: 50%;
+  }
+  .logo-grid-module .logo-grid {
+    display: flex;
+  }
+  .logo-grid-module .logo-grid__item {
+    margin-bottom: 0;
+  }
+}
+
 .video-module {
   padding-top: 0;
   padding-bottom: 0;
@@ -4704,7 +4769,7 @@ hr {
 .landing-page main > *:nth-child(2) {
   background-color: #f4f9f6;
 }
-.landing-page main > *:nth-child(4) {
+.landing-page main > *:nth-child(5) {
   background-color: #ffcd39;
 }
 .landing-page main > *:nth-child(7) {
@@ -4736,10 +4801,10 @@ hr {
   display: block;
 }
 @media (min-width: 768px) {
-  .landing-page main > *:nth-child(3) {
+  .landing-page main > *:nth-child(4) {
     grid-column: span 2;
   }
-  .landing-page main > *:nth-child(4), .landing-page main > *:nth-child(5), .landing-page main > *:nth-child(6), .landing-page main > *:nth-child(7) {
+  .landing-page main > *:nth-child(5), .landing-page main > *:nth-child(6), .landing-page main > *:nth-child(7), .landing-page main > *:nth-child(8) {
     grid-column: span 1;
   }
 }
@@ -4750,7 +4815,7 @@ hr {
   .landing-page main > * {
     grid-column: span 4;
   }
-  .landing-page main > *:nth-child(4), .landing-page main > *:nth-child(5) {
+  .landing-page main > *:nth-child(5), .landing-page main > *:nth-child(6) {
     grid-column: span 2;
   }
 }

@@ -1,0 +1,18 @@
+{% extends 'partials/module.html.twig' %}
+
+{% set body_classes = body_classes ~ ' logo-grid-module container-fluid' %}
+
+{% block content %}
+    {% if page.title %}
+        <p class="module__kicker">{{ page.header.kicker|e('html') }}</p>
+        <h2 class="module__heading">{{ page.title|e('html') }}</h2>
+    {% endif %}
+    {{ content|raw }}
+    <div class="logo-grid">
+        {% for logo in page.header.logos %}
+            <div class="logo-grid__item" {% if logo.flex %}style="flex: {{ logo.flex }}; grid-column: span {{ logo.flex }}"{% endif %}>
+                {{ page.media[logo.image].html('', logo.name, 'img-fluid')|raw }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
