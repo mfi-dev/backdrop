@@ -1,6 +1,6 @@
 {% extends 'partials/module.html.twig' %}
 
-{% set body_classes = body_classes ~ ' video-module' %}
+{% set body_classes = page.header.body_classes ~ ' video-module' %}
 
 {% block content %}
     {{ include('partials/video.html.twig', page.header.video) }}

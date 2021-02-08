@@ -5,36 +5,6 @@
   
     & > * {
       grid-column: span 3;
-
-      &:nth-child(2) {
-        background-color: tint-color($green, 95%);
-      }
-
-      &:nth-child(5) {
-        background-color: $yellow-400;
-      }
-
-      &:nth-child(7) {
-        background-color: tint-color($green, 95%);
-        background-image: url('../images/graph.svg');
-        background-position: left bottom;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    }
-  }
-
-  .animation-module canvas {
-    position: absolute;
-    top: 0;
-    left: 66%;
-
-    @include media-breakpoint-up(lg) {
-      left: 50%;
-    }
-
-    @include media-breakpoint-down(md) {
-      display: none !important;
     }
   }
 
@@ -46,18 +16,34 @@
     display: block;
   }
 
-  @include media-breakpoint-up(md) {
-    main > * {
-      &:nth-child(4) {
-        grid-column: span 2;
+  .animation-module {
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 66%;
+
+      @include media-breakpoint-up(lg) {
+        left: 50%;
       }
 
-      &:nth-child(5),
-      &:nth-child(6),
-      &:nth-child(7),
-      &:nth-child(8) {
+      @include media-breakpoint-down(md) {
+        display: none !important;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .image-module,
+    .video-module {
+      grid-column: span 2;
+
+      & ~ * {
         grid-column: span 1;
       }
+    }
+
+    .contact-module {
+      grid-column: span 3;
     }
   }
 
@@ -67,12 +53,25 @@
 
       & > * {
         grid-column: span 4;
-
-        &:nth-child(5),
-        &:nth-child(6) {
-          grid-column: span 2;
-        }
       }
+    }
+
+    .image-module,
+    .video-module {
+      grid-column: span 2;
+
+      & + .module {
+        grid-column: span 2;
+      }
+
+      & ~ .image-module + .module,
+      & ~ .video-module + .module {
+        grid-column: span 1;
+      }
+    }
+
+    .contact-module {
+      grid-column: span 4;
     }
   }
 }

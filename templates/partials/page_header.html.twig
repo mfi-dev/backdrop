@@ -2,14 +2,14 @@
     <nav class="navbar navbar-expand navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img alt="{{ site.title|e('html_attr') }}" src="{{ url('theme://images/logo.svg') }}" width="310" height="56">
+                <img alt="{{ site.title|e('html_attr') }}" src="{{ url('theme://images/logo.svg') }}" width="310" height="54">
             </a>
             <div class="navbar-nav">
                 {% for p in pages.children.visible %}
                     {% set active_page = (p.active or p.activeChild) ? true : false %}
                     {% set nav_link_classes = 'nav-link' ~ (active_page ? ' active' : '') %}
                     {% set nav_link_aria = active_page ? 'aria-current="page"' : '' %}
-                    <a href="{{ p.url }}" class="nav-link {{ nav_link_classes }}" {{ nav_link_aria }}>
+                    <a href="{{ p.url }}" class="{{ nav_link_classes }}" {{ nav_link_aria }}>
                         {{ p.menu }}
                     </a>
                 {% endfor %}

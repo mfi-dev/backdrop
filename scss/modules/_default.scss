@@ -28,3 +28,15 @@
     padding-top: $spacer * 2;
   }
 }
+
+.graph-background {
+  background-color: tint-color($green, 95%);
+  background-image: url('../images/graph.svg');
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.yellow-background {
+  background-color: $yellow-400;
+}

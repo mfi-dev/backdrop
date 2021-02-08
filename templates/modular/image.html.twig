@@ -1,6 +1,6 @@
 {% extends 'partials/module.html.twig' %}
 
-{% set body_classes = body_classes ~ ' image-module' %}
+{% set body_classes = page.header.body_classes ~ ' image-module' %}
 
 {% block content %}
     {% set classes = page.header.ratio ? 'ratio' : 'ratio ratio-16x9' %}
