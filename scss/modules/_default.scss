@@ -20,6 +20,11 @@
       display: none;
     }
   }
+
+  &__kicker {
+    text-transform: uppercase;
+    font-family: $headings-font-family;
+  }
 }
 
 .image-module + .module,

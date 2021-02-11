@@ -474,13 +474,13 @@ progress {
   }
 }
 
-.display-3 {
+.display-3, .homepage h1, .homepage .h1 {
   font-size: calc(1.525rem + 3.3vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
-  .display-3 {
+  .display-3, .homepage h1, .homepage .h1 {
     font-size: 4rem;
   }
 }
@@ -4539,6 +4539,11 @@ hr {
   font-weight: 900;
 }
 
+.letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
 #skip-nav {
   position: absolute;
   top: -4rem;
@@ -4637,6 +4642,10 @@ hr {
 }
 .module .video__mesh {
   display: none;
+}
+.module__kicker {
+  text-transform: uppercase;
+  font-family: "space_grotesk";
 }
 
 @media (max-width: 767.98px) {
@@ -4771,12 +4780,75 @@ hr {
   }
 }
 
+.project-module--black {
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #fff;
+}
+.project-module--black a {
+  color: #b19fba;
+}
+.project-module--black a:hover {
+  color: #d8cfdd;
+}
+.project-module--black .project-module__text {
+  background-color: #212529;
+}
+.project-module .module__kicker {
+  letter-spacing: 0.125em;
+}
+.project-module .module__heading {
+  margin-bottom: 1.5rem;
+}
+.project-module__services {
+  color: #adb5bd;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75em;
+}
+@media (max-width: 767.98px) {
+  .project-module__image {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .project-module__text {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .project-module > .row {
+    flex-direction: row-reverse;
+  }
+  .project-module--black {
+    background-color: #000;
+  }
+  .project-module--black .project-module__text {
+    background-color: transparent;
+  }
+  .project-module__image {
+    padding-right: 0;
+  }
+}
+
 .video-module {
   padding-top: 0;
   padding-bottom: 0;
 }
 .video-module .ratio {
   height: 100%;
+}
+
+.homepage h1, .homepage .h1 {
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .homepage h1, .homepage .h1 {
+    max-width: 66%;
+  }
+}
+.homepage .page-content {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .landing-page main {

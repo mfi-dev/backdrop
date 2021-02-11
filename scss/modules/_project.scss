@@ -1,0 +1,63 @@
+.project-module {
+  &--black {
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #fff;
+
+    a {
+      color: tint-color($primary, 60%);
+
+      &:hover {
+        color: tint-color($primary, 80%);
+      }
+    }
+  }
+
+  &--black &__text {
+    background-color: $gray-900;
+  }
+
+  .module__kicker {
+    letter-spacing: 0.125em;
+  }
+
+  .module__heading {
+    margin-bottom: $line-height-base * 1rem;
+  }
+
+  &__services {
+    color: $gray-500;
+    font-family: $font-family-monospace;
+    font-size: 0.75em;
+  }
+
+  @include media-breakpoint-down(md) {
+    &__image {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &__text {
+      padding-top: $spacer * 2;
+      padding-bottom: $spacer * 2;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    & > .row {
+      flex-direction: row-reverse;
+    }
+
+    &--black {
+      background-color: #000;
+    }
+
+    &--black &__text {
+      background-color: transparent;
+    }
+
+    &__image {
+      padding-right: 0;
+    }
+  }
+}

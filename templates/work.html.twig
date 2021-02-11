@@ -1,6 +1,4 @@
-{% extends 'partials/base.html.twig' %}
-
-{% set body_classes = page.header.body_classes ~ ' modular-page' %}
+{% extends 'modular.html.twig' %}
 
 {% block content %}
     {% if page.content %}
@@ -8,7 +6,7 @@
         {{ page.content|raw }}
     </div>
     {% endif %}
-    {% for module in page.collection() %}
-        {{ module.content|raw }}
+    {% for child in page.collection() %}
+        {{ include('modular/project.html.twig', { page: child }) }}
     {% endfor %}
 {% endblock %}

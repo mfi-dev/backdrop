@@ -1,0 +1,34 @@
+{% extends 'partials/module.html.twig' %}
+
+{% set project_classes = ' project-module container-fluid' ~ (page.header.dark_cover ? ' project-module--black' : '') %}
+{% set body_classes = page.header.body_classes ~ project_classes  %}
+
+{% block content %}
+    <div class="row">
+        {% if page.header.cover and page.media[page.header.cover] %}
+            <div class="project-module__image col-md-6">
+                {{ page.media[page.header.cover].derivatives(800, 2800, 400).html('', '', 'img-fluid')|raw }}
+            </div>
+        {% endif %}
+        <div class="project-module__text col-md-6">
+            {% if page.title %}
+                <p class="module__kicker">{{ page.title|e('html') }}</p>
+            {% endif %}
+            {% if page.header.subtitle %}
+                <h2 class="module__heading">
+                    <a href="{{ page.url }}">
+                        {{ page.header.subtitle|e('html') }}
+                        <i class="las la-long-arrow-alt-right"></i>
+                    </a>
+                </h2>
+            {% endif %}
+            {% if page.taxonomy.service %}
+                <ul class="project-module__services list-unstyled">
+                    {% for service in page.taxonomy.service %}
+                        <li>{{ service }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
