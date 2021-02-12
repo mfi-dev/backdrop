@@ -52,6 +52,18 @@
     });
   };
 
+  const slideRight = (element) => {
+    anime({
+      targets: element,
+      translateX: [-100, 0],
+      translateZ: 0,
+      opacity: [0, 1],
+      easing: 'easeOutExpo',
+      duration: 2400,
+      delay: 500
+    });
+  };
+
   document.addEventListener('DOMContentLoaded', (event) => {
     if (document.querySelector('.animation-module--cube')) {
       cubeAnimation(document.querySelector('.animation-module--cube'));
@@ -111,6 +123,24 @@
         const items = element.querySelectorAll('li');
         items.forEach((item) => item.style.opacity = 0);
         projectModuleServicesObserver.observe(element);
+      });
+    }
+
+    if ('IntersectionObserver' in window && document.querySelectorAll('.slide-right')) {
+      const slideRightElements = document.querySelectorAll('.slide-right');
+
+      const slideRightObserver = new IntersectionObserver((elements) => {
+        elements.forEach((element) => {
+          if (element.intersectionRatio <= 0) return;
+
+          slideRightObserver.unobserve(element.target);
+          slideRight(element.target);
+        });
+      });
+
+      slideRightElements.forEach((element) => {
+        element.style.opacity = 0;
+        slideRightObserver.observe(element);
       });
     }
   });

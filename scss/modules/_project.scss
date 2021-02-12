@@ -1,8 +1,9 @@
 .project-module {
-  &--black {
+  &--dark {
     padding-top: 0;
     padding-bottom: 0;
     color: #fff;
+    background-color: #000;
 
     a {
       color: tint-color($primary, 60%);
@@ -13,8 +14,9 @@
     }
   }
 
-  &--black &__text {
-    background-color: $gray-900;
+  &__text {
+    padding-top: $spacer * 2;
+    padding-bottom: $spacer * 2;
   }
 
   .module__kicker {
@@ -25,6 +27,55 @@
     margin-bottom: $line-height-base * 1rem;
   }
 
+  &__image {
+    &--sm,
+    &--md,
+    &--lg,
+    &--xl {
+      display: none;
+    }
+
+    @include media-breakpoint-up(sm) {
+      &--sm {
+        display: block;
+      }
+
+      &--sm + & {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      &--md {
+        display: block;
+      }
+
+      &--md + & {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      &--lg {
+        display: block;
+      }
+
+      &--lg + & {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      &--xl {
+        display: block;
+      }
+
+      &--xl + & {
+        display: none;
+      }
+    }
+  }
+
   &__services {
     color: $gray-500;
     font-family: $font-family-monospace;
@@ -32,14 +83,9 @@
   }
 
   @include media-breakpoint-down(md) {
-    &__image {
+    &__image-container {
       padding-left: 0;
       padding-right: 0;
-    }
-
-    &__text {
-      padding-top: $spacer * 2;
-      padding-bottom: $spacer * 2;
     }
   }
 
@@ -48,16 +94,16 @@
       flex-direction: row-reverse;
     }
 
-    &--black {
-      background-color: #000;
+    &--slide-right > .row {
+      flex-direction: row;
     }
 
-    &--black &__text {
-      background-color: transparent;
-    }
-
-    &__image {
+    &__image-container:not(.slide-right) {
       padding-right: 0;
+    }
+
+    &__image-container.slide-right {
+      padding-left: 0;
     }
   }
 }

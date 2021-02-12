@@ -4780,19 +4780,21 @@ hr {
   }
 }
 
-.project-module--black {
+.project-module--dark {
   padding-top: 0;
   padding-bottom: 0;
   color: #fff;
+  background-color: #000;
 }
-.project-module--black a {
+.project-module--dark a {
   color: #b19fba;
 }
-.project-module--black a:hover {
+.project-module--dark a:hover {
   color: #d8cfdd;
 }
-.project-module--black .project-module__text {
-  background-color: #212529;
+.project-module__text {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .project-module .module__kicker {
   letter-spacing: 0.125em;
@@ -4800,33 +4802,64 @@ hr {
 .project-module .module__heading {
   margin-bottom: 1.5rem;
 }
+.project-module__image--sm, .project-module__image--md, .project-module__image--lg, .project-module__image--xl {
+  display: none;
+}
+@media (min-width: 576px) {
+  .project-module__image--sm {
+    display: block;
+  }
+  .project-module__image--sm + .project-module__image {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .project-module__image--md {
+    display: block;
+  }
+  .project-module__image--md + .project-module__image {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .project-module__image--lg {
+    display: block;
+  }
+  .project-module__image--lg + .project-module__image {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .project-module__image--xl {
+    display: block;
+  }
+  .project-module__image--xl + .project-module__image {
+    display: none;
+  }
+}
 .project-module__services {
   color: #adb5bd;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.75em;
 }
 @media (max-width: 767.98px) {
-  .project-module__image {
+  .project-module__image-container {
     padding-left: 0;
     padding-right: 0;
-  }
-  .project-module__text {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
   }
 }
 @media (min-width: 768px) {
   .project-module > .row {
     flex-direction: row-reverse;
   }
-  .project-module--black {
-    background-color: #000;
+  .project-module--slide-right > .row {
+    flex-direction: row;
   }
-  .project-module--black .project-module__text {
-    background-color: transparent;
-  }
-  .project-module__image {
+  .project-module__image-container:not(.slide-right) {
     padding-right: 0;
+  }
+  .project-module__image-container.slide-right {
+    padding-left: 0;
   }
 }
 

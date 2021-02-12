@@ -1,13 +1,31 @@
-{% extends 'partials/module.html.twig' %}
+{% set project_classes = 'project-module container-fluid' %}
+{% if page.header.cover %}
+    {% set project_classes = project_classes ~ (page.header.cover.dark ? ' project-module--dark' : '') %}
+    {% set project_classes = project_classes ~ (page.header.cover.animate is sameas('slide-right') ? ' project-module--slide-right' : '') %}
+{% endif %}
+{% set body_classes = page.header.body_classes ~ ' ' ~  project_classes %}
 
-{% set project_classes = ' project-module container-fluid' ~ (page.header.dark_cover ? ' project-module--black' : '') %}
-{% set body_classes = page.header.body_classes ~ project_classes  %}
-
+<div id="{{ page.menu|hyphenize }}"
+     class="module {{ body_classes }}"
+     {% if page.header.cover and page.header.cover.background %}
+     style="background-color: {{ page.header.cover.background|e('html_attr') }}"
+     {% endif %}
+>
 {% block content %}
     <div class="row">
-        {% if page.header.cover and page.media[page.header.cover] %}
-            <div class="project-module__image col-md-6">
-                {{ page.media[page.header.cover].derivatives(800, 2800, 400).html('', '', 'img-fluid')|raw }}
+        {% if page.header.cover and page.header.cover.image and page.media[page.header.cover.image] %}
+            {% set image_classes = 'project-module__image-container col-md-6' %}
+            {% set image_classes = image_classes ~ (page.header.cover and page.header.cover.animate is sameas('slide-right') ? ' slide-right' : '') %}
+            {% set image_extension = page.header.cover.image|split('.')|last %}
+            {% set image_name = page.header.cover.image|replace({ ('.' ~ image_extension): '' }) %}
+            <div class="{{ image_classes }}">
+                {% for breakpoint in ['xl', 'lg', 'md', 'sm'] %}
+                    {% set breakpoint_file = image_name ~ '@' ~ breakpoint ~ '.' ~ image_extension %}
+                    {% if page.media[breakpoint_file] %}
+                        {{ page.media[breakpoint_file].html('', '', 'project-module__image project-module__image--' ~ breakpoint ~ ' img-fluid')|raw }}
+                    {% endif %}
+                {% endfor %}
+                {{ page.media[page.header.cover.image].derivatives(800, 2800, 400).html('', '', 'project-module__image img-fluid')|raw }}
             </div>
         {% endif %}
         <div class="project-module__text col-md-6">
@@ -32,3 +50,4 @@
         </div>
     </div>
 {% endblock %}
+</div>
