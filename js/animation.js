@@ -27,40 +27,58 @@
     });
   };
 
-  const movingLettersEffect12 = (element) => {
+  const intersectionObserverFactory = (callback) => {
+    return new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio <= 0) return;
+        observer.unobserve(entry.target);
+        callback(entry.target);
+      });
+    });
+  };
 
+  const animeDefaults = {
+    translateX: 0,
+    translateZ: 0,
+    opacity: [0, 1],
+    easing: 'easeOutExpo',
+    duration: 1200,
+    delay: 500
+  };
+
+  const movingLettersEffect12 = (element) => {
     anime({
+      ...animeDefaults,
       targets: element.querySelectorAll('.letter'),
       translateX: [40, 0],
-      translateZ: 0,
-      opacity: [0, 1],
-      easing: 'easeOutExpo',
-      duration: 1200,
       delay: (el, i) => 500 + 30 * i
     });
   };
 
   const slideUp = (element) => {
     anime({
+      ...animeDefaults,
       targets: element,
       translateY: [40, 0],
-      translateZ: 0,
-      opacity: [0, 1],
-      easing: 'easeOutExpo',
-      duration: 1200,
       delay: (el, i) => 500 + 30 * i
+    });
+  };
+
+  const slideLeft = (element) => {
+    anime({
+      ...animeDefaults,
+      targets: element,
+      translateX: [100, 0],
+      duration: 2400
     });
   };
 
   const slideRight = (element) => {
     anime({
+      ...animeDefaults,
       targets: element,
       translateX: [-100, 0],
-      translateZ: 0,
-      opacity: [0, 1],
-      easing: 'easeOutExpo',
-      duration: 2400,
-      delay: 500
+      duration: 2400
     });
   };
 
@@ -71,15 +89,7 @@
 
     if ('IntersectionObserver' in window && document.querySelectorAll('.project-module .module__kicker')) {
       const projectModuleKickerElements = document.querySelectorAll('.project-module .module__kicker');
-
-      const projectModuleKickerObserver = new IntersectionObserver((elements) => {
-        elements.forEach((element) => {
-          if (element.intersectionRatio <= 0) return;
-
-          projectModuleKickerObserver.unobserve(element.target);
-          movingLettersEffect12(element.target);
-        });
-      });
+      const projectModuleKickerObserver = intersectionObserverFactory(movingLettersEffect12);
 
       projectModuleKickerElements.forEach((element) => {
         element.innerHTML = element.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -91,15 +101,7 @@
 
     if ('IntersectionObserver' in window && document.querySelectorAll('.project-module .module__heading')) {
       const projectModuleHeadingElements = document.querySelectorAll('.project-module .module__heading');
-
-      const projectModuleHeadingObserver = new IntersectionObserver((elements) => {
-        elements.forEach((element) => {
-          if (element.intersectionRatio <= 0) return;
-
-          projectModuleHeadingObserver.unobserve(element.target);
-          slideUp(element.target);
-        });
-      });
+      const projectModuleHeadingObserver = intersectionObserverFactory(slideUp);
 
       projectModuleHeadingElements.forEach((element) => {
         element.style.opacity = 0;
@@ -109,15 +111,7 @@
 
     if ('IntersectionObserver' in window && document.querySelectorAll('.project-module__services')) {
       const projectModuleServicesElements = document.querySelectorAll('.project-module__services');
-
-      const projectModuleServicesObserver = new IntersectionObserver((elements) => {
-        elements.forEach((element) => {
-          if (element.intersectionRatio <= 0) return;
-
-          projectModuleServicesObserver.unobserve(element.target);
-          slideUp(element.target.querySelectorAll('li'));
-        });
-      });
+      const projectModuleServicesObserver = intersectionObserverFactory((element) => slideUp(element.querySelectorAll('li')));
 
       projectModuleServicesElements.forEach((element) => {
         const items = element.querySelectorAll('li');
@@ -126,17 +120,19 @@
       });
     }
 
+    if ('IntersectionObserver' in window && document.querySelectorAll('.slide-left')) {
+      const slideLeftElements = document.querySelectorAll('.slide-left');
+      const slideLeftObserver = intersectionObserverFactory(slideLeft);
+
+      slideLeftElements.forEach((element) => {
+        element.style.opacity = 0;
+        slideLeftObserver.observe(element);
+      });
+    }
+
     if ('IntersectionObserver' in window && document.querySelectorAll('.slide-right')) {
       const slideRightElements = document.querySelectorAll('.slide-right');
-
-      const slideRightObserver = new IntersectionObserver((elements) => {
-        elements.forEach((element) => {
-          if (element.intersectionRatio <= 0) return;
-
-          slideRightObserver.unobserve(element.target);
-          slideRight(element.target);
-        });
-      });
+      const slideRightObserver = intersectionObserverFactory(slideRight);
 
       slideRightElements.forEach((element) => {
         element.style.opacity = 0;

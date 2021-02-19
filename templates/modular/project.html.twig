@@ -1,7 +1,16 @@
 {% set project_classes = 'project-module container-fluid' %}
 {% if page.header.cover %}
     {% set project_classes = project_classes ~ (page.header.cover.dark ? ' project-module--dark' : '') %}
-    {% set project_classes = project_classes ~ (page.header.cover.animate is sameas('slide-right') ? ' project-module--slide-right' : '') %}
+    {% set image_classes = 'project-module__image-container col-md-6' %}
+    {% if page.header.cover and page.header.cover.animate %}
+        {% if page.header.cover.animate is sameas('slide-right') %}
+            {% set project_classes = project_classes ~ ' project-module--slide-right' %}
+            {% set image_classes = image_classes ~ ' slide-right' %}
+        {% elseif page.header.cover.animate is sameas('slide-left') %}
+            {% set project_classes = project_classes ~ ' project-module--slide-left' %}
+            {% set image_classes = image_classes ~ ' slide-left' %}
+        {% endif %}
+    {% endif %}
 {% endif %}
 {% set body_classes = page.header.body_classes ~ ' ' ~  project_classes %}
 
@@ -14,8 +23,6 @@
 {% block content %}
     <div class="row">
         {% if page.header.cover and page.header.cover.image and page.media[page.header.cover.image] %}
-            {% set image_classes = 'project-module__image-container col-md-6' %}
-            {% set image_classes = image_classes ~ (page.header.cover and page.header.cover.animate is sameas('slide-right') ? ' slide-right' : '') %}
             {% set image_extension = page.header.cover.image|split('.')|last %}
             {% set image_name = page.header.cover.image|replace({ ('.' ~ image_extension): '' }) %}
             <div class="{{ image_classes }}">

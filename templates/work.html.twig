@@ -6,7 +6,10 @@
         {{ page.content|raw }}
     </div>
     {% endif %}
-    {% for child in page.collection() %}
-        {{ include('modular/project.html.twig', { page: child }) }}
+    {% for project in page.collection('projects') %}
+        {{ include('modular/project.html.twig', { page: project }) }}
+    {% endfor %}
+    {% for module in page.collection() %}
+        {{ module.content|raw }}
     {% endfor %}
 {% endblock %}

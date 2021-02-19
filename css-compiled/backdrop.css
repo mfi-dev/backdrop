@@ -4874,14 +4874,29 @@ hr {
 .homepage h1, .homepage .h1 {
   font-weight: 400;
 }
-@media (min-width: 768px) {
-  .homepage h1, .homepage .h1 {
-    max-width: 66%;
-  }
+.homepage h1 sup, .homepage .h1 sup {
+  top: -0.75em;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.5em;
 }
 .homepage .page-content {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+.homepage .page-content ul {
+  list-style-type: none;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  padding-left: 1rem;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75em;
+  color: #6c757d;
+}
+.homepage .page-content .footnote {
+  position: absolute;
+  top: unset;
+  line-height: 1.5;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .landing-page main {
