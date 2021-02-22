@@ -2,4 +2,25 @@
   padding-top: $spacer * 2;
   padding-bottom: $spacer;
   border-top: 1px solid #000;
+
+  .social-media-nav li {
+    display: inline-block;
+    font-size: 1.5em;
+  }
+
+  .fine-print {
+    margin-top: $spacer * 2;
+    font-size: 0.75em;
+  }
+
+  @include media-breakpoint-down(sm) {
+    h2 {
+      margin-top: $spacer;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .social-media-nav li {
+    }
+  }
 }

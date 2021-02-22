@@ -4575,7 +4575,19 @@ hr {
   padding-bottom: 1rem;
   border-top: 1px solid #000;
 }
-
+#page-footer .social-media-nav li {
+  display: inline-block;
+  font-size: 1.5em;
+}
+#page-footer .fine-print {
+  margin-top: 2rem;
+  font-size: 0.75em;
+}
+@media (max-width: 575.98px) {
+  #page-footer h2, #page-footer .h2 {
+    margin-top: 1rem;
+  }
+}
 .lightbox .modal-header {
   position: absolute;
   top: 0;

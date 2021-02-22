@@ -1,11 +1,13 @@
 {% set project_classes = 'project-module container-fluid' %}
+{% set text_classes = 'col-md-6' %}
 {% if page.header.cover %}
     {% set project_classes = project_classes ~ (page.header.cover.dark ? ' project-module--dark' : '') %}
-    {% set image_classes = 'project-module__image-container col-md-6' %}
+    {% set image_classes = 'col-md-6' %}
     {% if page.header.cover and page.header.cover.animate %}
         {% if page.header.cover.animate is sameas('slide-right') %}
             {% set project_classes = project_classes ~ ' project-module--slide-right' %}
-            {% set image_classes = image_classes ~ ' slide-right' %}
+            {% set image_classes = 'col-md-8 col-lg-6 slide-right' %}
+            {% set text_classes = 'col-md-4 col-lg-6' %}
         {% elseif page.header.cover.animate is sameas('slide-left') %}
             {% set project_classes = project_classes ~ ' project-module--slide-left' %}
             {% set image_classes = image_classes ~ ' slide-left' %}
@@ -25,7 +27,7 @@
         {% if page.header.cover and page.header.cover.image and page.media[page.header.cover.image] %}
             {% set image_extension = page.header.cover.image|split('.')|last %}
             {% set image_name = page.header.cover.image|replace({ ('.' ~ image_extension): '' }) %}
-            <div class="{{ image_classes }}">
+            <div class="project-module__image-container {{ image_classes }}">
                 {% for breakpoint in ['xl', 'lg', 'md', 'sm'] %}
                     {% set breakpoint_file = image_name ~ '@' ~ breakpoint ~ '.' ~ image_extension %}
                     {% if page.media[breakpoint_file] %}
@@ -35,7 +37,7 @@
                 {{ page.media[page.header.cover.image].derivatives(800, 2800, 400).html('', '', 'project-module__image img-fluid')|raw }}
             </div>
         {% endif %}
-        <div class="project-module__text col-md-6">
+        <div class="project-module__text {{ text_classes }}">
             {% if page.title %}
                 <p class="module__kicker">{{ page.title|e('html') }}</p>
             {% endif %}
