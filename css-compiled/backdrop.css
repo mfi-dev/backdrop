@@ -4895,20 +4895,26 @@ hr {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
-.homepage .page-content ul {
-  list-style-type: none;
-  margin-top: 0.5em;
-  margin-bottom: 0;
-  padding-left: 1rem;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.75em;
-  color: #6c757d;
-}
 .homepage .page-content .footnote {
   position: absolute;
   top: unset;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
   line-height: 1.5;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.homepage .page-content #full-service-definition ul {
+  display: inline-block;
+  list-style-type: none;
+  padding: 1rem 1.25rem;
+  color: #6c757d;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75em;
+  transition: all 150ms ease-out;
+}
+.homepage .page-content #full-service-definition.active ul {
+  background-color: #fff3cd;
+  color: #000;
 }
 
 .landing-page main {

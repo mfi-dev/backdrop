@@ -19,6 +19,7 @@
     {% do assets.addJs('theme://js/lightbox.js', { group: 'bottom', priority: 101 }) %}
     {% do assets.addJs('https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', { group: 'bottom', priority: 100 }) %}
     {% do assets.addJs('theme://js/animation.js', { group: 'bottom', priority: 100 }) %}
+    {% do assets.addJs('theme://js/homepage-hero.js', { group: 'bottom', priority: 100 }) %}
     {% block assets deferred %}
         {{ assets.css()|raw }}
         {{ assets.js()|raw }}

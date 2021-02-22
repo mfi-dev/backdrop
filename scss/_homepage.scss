@@ -14,21 +14,32 @@
     padding-top: $spacer * 4;
     padding-bottom: $spacer * 4;
 
-    ul {
-      list-style-type: none;
-      margin-top: 0.5em;
-      margin-bottom: 0;
-      padding-left: $spacer;
-      font-family: $font-family-monospace;
-      font-size: 0.75em;
-      color: $gray-600;
-    }
-
     .footnote {
       position: absolute;
       top: unset;
+      margin-top: $spacer / 2;
+      margin-left: $spacer / 2;
       line-height: 1.5;
       font-family: $font-family-monospace;
+    }
+
+    #full-service-definition {
+      ul {
+        display: inline-block;
+        list-style-type: none;
+        padding: $spacer ($spacer * 1.25);
+        color: $gray-600;
+        font-family: $font-family-monospace;
+        font-size: 0.75em;
+        transition: all 150ms ease-out;
+      }
+
+      &.active {
+        ul {
+          background-color: $yellow-100;
+          color: #000;
+        }
+      }
     }
   }
 }
