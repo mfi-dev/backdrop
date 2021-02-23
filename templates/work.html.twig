@@ -1,6 +1,27 @@
 {% extends 'modular.html.twig' %}
 
 {% block content %}
+    <div id="work-hero" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 col-lg-9">
+                <h1>A full-service<sup><a id="full-service-citation" href="#full-service-definition">*</a></sup> creative agency.</h1>
+                {% if page.header.featured_video %}
+                    {{ include('partials/lightbox.html.twig', page.header.featured_video) }}
+                {% endif %}
+            </div>
+            <div class="col-sm-4 col-lg-3">
+                <div id="full-service-definition">
+                    <sup class="footnote">*</sup>
+                    <ul>
+                        {% for service in page.header.services %}
+                            <li>{{ service|e('html') }}</li>
+                        {% endfor %}
+                        <li>etc.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     {% if page.content %}
     <div class="page-content container-fluid">
         {{ page.content|raw }}

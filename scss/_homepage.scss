@@ -1,7 +1,8 @@
 .homepage {
   h1 {
-    @extend .display-3;
+    @extend .display-4;
     font-weight: 400;
+    margin-bottom: $spacer * 1.5;
 
     sup {
       top: -0.75em;
@@ -10,36 +11,61 @@
     }
   }
 
+  #work-hero {
+    padding-top: $spacer * 3;
+    padding-bottom: $spacer * 3;
+  }
+
   .page-content {
     padding-top: $spacer * 4;
     padding-bottom: $spacer * 4;
+  }
+
+  #full-service-definition {
+    position: relative;
+    top: $spacer * -2;
+    transition: opacity 150ms ease-out;
+
+    ul {
+      position: relative;
+      top: $spacer * 2;
+      list-style-type: none;
+      margin-bottom: 0;
+      padding: $spacer ($spacer * 1.25);
+      color: $gray-700;
+      font-family: $font-family-monospace;
+      font-size: 0.75em;
+      transition: all 1500ms ease-out;
+    }
 
     .footnote {
       position: absolute;
-      top: unset;
-      margin-top: $spacer / 2;
-      margin-left: $spacer / 2;
+      top: $spacer * 2.75;
+      left: $spacer / 2;
       line-height: 1.5;
       font-family: $font-family-monospace;
     }
 
-    #full-service-definition {
-      ul {
-        display: inline-block;
-        list-style-type: none;
-        padding: $spacer ($spacer * 1.25);
-        color: $gray-600;
-        font-family: $font-family-monospace;
-        font-size: 0.75em;
-        transition: all 150ms ease-out;
-      }
+    &.hide {
+      height: 0;
+      opacity: 0;
 
-      &.active {
-        ul {
-          background-color: $yellow-100;
-          color: #000;
-        }
+      ul {
+        color: #000;
+        background-color: $yellow-100;
       }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .video-button {
+      margin-bottom: $spacer;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    #work-hero {
+      padding-bottom: $spacer * 4;
     }
   }
 }

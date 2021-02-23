@@ -474,24 +474,24 @@ progress {
   }
 }
 
-.display-3, .homepage h1, .homepage .h1 {
+.display-3 {
   font-size: calc(1.525rem + 3.3vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
-  .display-3, .homepage h1, .homepage .h1 {
+  .display-3 {
     font-size: 4rem;
   }
 }
 
-.display-4 {
+.display-4, .homepage h1, .homepage .h1 {
   font-size: calc(1.475rem + 2.7vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
-  .display-4 {
+  .display-4, .homepage h1, .homepage .h1 {
     font-size: 3.5rem;
   }
 }
@@ -4885,36 +4885,61 @@ hr {
 
 .homepage h1, .homepage .h1 {
   font-weight: 400;
+  margin-bottom: 1.5rem;
 }
 .homepage h1 sup, .homepage .h1 sup {
   top: -0.75em;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.5em;
 }
+.homepage #work-hero {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 .homepage .page-content {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
-.homepage .page-content .footnote {
+.homepage #full-service-definition {
+  position: relative;
+  top: -2rem;
+  transition: opacity 150ms ease-out;
+}
+.homepage #full-service-definition ul {
+  position: relative;
+  top: 2rem;
+  list-style-type: none;
+  margin-bottom: 0;
+  padding: 1rem 1.25rem;
+  color: #495057;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75em;
+  transition: all 1500ms ease-out;
+}
+.homepage #full-service-definition .footnote {
   position: absolute;
-  top: unset;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  top: 2.75rem;
+  left: 0.5rem;
   line-height: 1.5;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-.homepage .page-content #full-service-definition ul {
-  display: inline-block;
-  list-style-type: none;
-  padding: 1rem 1.25rem;
-  color: #6c757d;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.75em;
-  transition: all 150ms ease-out;
+.homepage #full-service-definition.hide {
+  height: 0;
+  opacity: 0;
 }
-.homepage .page-content #full-service-definition.active ul {
-  background-color: #fff3cd;
+.homepage #full-service-definition.hide ul {
   color: #000;
+  background-color: #fff3cd;
+}
+@media (max-width: 575.98px) {
+  .homepage .video-button {
+    margin-bottom: 1rem;
+  }
+}
+@media (min-width: 576px) {
+  .homepage #work-hero {
+    padding-bottom: 4rem;
+  }
 }
 
 .landing-page main {
