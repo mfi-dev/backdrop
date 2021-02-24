@@ -4585,11 +4585,29 @@ hr {
   margin-top: 2rem;
   font-size: 0.75em;
 }
+#page-footer .media-fusion-logo {
+  width: 12rem;
+  margin-right: 0.75rem;
+  padding-right: 0.75rem;
+  border-right: 1px solid #ced4da;
+}
+#page-footer .tribe-logo {
+  width: 3rem;
+}
 @media (max-width: 575.98px) {
   #page-footer h2, #page-footer .h2 {
     margin-top: 1rem;
   }
 }
+@media (max-width: 575.98px) {
+  #page-footer .media-fusion-logo {
+    width: 14rem;
+  }
+  #page-footer .tribe-logo {
+    width: 4rem;
+  }
+}
+
 .lightbox .modal-header {
   position: absolute;
   top: 0;

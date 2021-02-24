@@ -13,14 +13,30 @@
     font-size: 0.75em;
   }
 
+  .media-fusion-logo {
+    width: 12rem;
+    margin-right: $spacer * 0.75;
+    padding-right: $spacer * 0.75;
+    border-right: 1px solid $gray-400;
+  }
+
+  .tribe-logo {
+    width: 3rem;
+  }
+
   @include media-breakpoint-down(sm) {
     h2 {
       margin-top: $spacer;
     }
   }
 
-  @include media-breakpoint-up(xl) {
-    .social-media-nav li {
+  @include media-breakpoint-down(sm) {
+    .media-fusion-logo {
+      width: 14rem;
+    }
+
+    .tribe-logo {
+      width: 4rem;
     }
   }
 }
