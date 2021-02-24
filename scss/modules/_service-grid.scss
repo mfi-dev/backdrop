@@ -1,0 +1,39 @@
+.service-grid-module {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  &__header {
+    display: none;
+  }
+}
+
+.service-grid {
+  &__item {
+    padding: $spacer * 2;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &__item {
+      padding-bottom: $spacer * 3;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    --bs-gutter-x: 1.5rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: repeat(3, 1fr);
+
+    &__item {
+      padding-bottom: $spacer * 4;
+    }
+  }
+}

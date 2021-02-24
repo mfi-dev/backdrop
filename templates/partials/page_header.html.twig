@@ -5,16 +5,19 @@
                 <img alt="{{ site.title|e('html_attr') }}" src="{{ url('theme://images/logo.svg') }}" width="310" height="54">
             </a>
             {% if page.children.visible|length > 0 %}
-                <div class="navbar-nav">
+                <ul class="navbar-nav">
                     {% for p in pages.children.visible %}
                         {% set active_page = (p.active or p.activeChild) ? true : false %}
+                        {% set nav_item_classes = 'nav-item' %}
                         {% set nav_link_classes = 'nav-link' ~ (active_page ? ' active' : '') %}
                         {% set nav_link_aria = active_page ? 'aria-current="page"' : '' %}
-                        <a href="{{ p.url }}" class="{{ nav_link_classes }}" {{ nav_link_aria }}>
-                            {{ p.menu }}
-                        </a>
+                        <li class="{{ nav_item_classes }}">
+                            <a href="{{ p.url }}" class="{{ nav_link_classes }}" {{ nav_link_aria }}>
+                                {{ p.menu }}
+                            </a>
+                        </li>
                     {% endfor %}
-                </div>
+                </ul>
             {% endif %}
             <a href="#request-a-quote" class="btn btn-primary">Request a quote</a>
         </div>

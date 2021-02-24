@@ -1,0 +1,28 @@
+{% extends 'partials/module.html.twig' %}
+
+{% set body_classes = page.header.body_classes ~ ' service-grid-module' %}
+
+{% block content %}
+    <div class="service-grid-module__header container-fluid">
+        {% if page.header.kicker %}
+            <p class="module__kicker">{{ page.header.kicker|e('html') }}</p>
+        {% endif %}
+        {% if page.title %}
+            <h2 class="module__heading">{{ page.title|e('html') }}</h2>
+        {% endif %}
+        {{ content|raw }}
+    </div>
+    <div class="service-grid">
+        {% for service in page.header.services %}
+            {% set service_page = page.find(service) %}
+            {% if service_page %}
+                <div class="service-grid__item">
+                    <a href="{{ service_page.url }}" class="h2">
+                        {{ service_page.title|e('html') }}
+                        <i class="las la-long-arrow-alt-right"></i>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

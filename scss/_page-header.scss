@@ -1,17 +1,18 @@
 #page-header {
+  .navbar > .container-fluid {
+    justify-content: flex-end;
+  }
+
   .navbar-brand {
+    margin-right: auto;
+
     img {
       width: 10rem;
       height: auto;
     }
   }
 
-  .nav-link {
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-
-    &.active {
-      border-bottom-color: #000;
-    }
+  .btn {
+    font-size: inherit;
   }
 }
