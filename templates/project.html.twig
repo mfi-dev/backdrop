@@ -1,0 +1,34 @@
+{% extends 'modular.html.twig' %}
+
+{% set body_classes = body_classes ?? 'project-page ' ~ page.header.body_classes %}
+
+{% block content %}
+    <div class="project-page__hero container-fluid">
+        <div class="row">
+            <div class="project-page__hero-text col-md-6">
+                <h1>{{ page.title }}</h1>
+                {% if page.taxonomy.service %}
+                    <ul class="project-page__services list-unstyled">
+                        {% for service in page.taxonomy.service %}
+                            <li>{{ service }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if page.header.subtitle %}
+                    <p class="lead">{{ page.header.subtitle }}</p>
+                {% endif %}
+                {% if page.header.summary %}
+                    {{ page.header.summary|markdown }}
+                {% endif %}
+            </div>
+            {% if page.header.cover and page.header.cover.image and page.media[page.header.cover.image] %}
+                {% set image_extension = page.header.cover.image|split('.')|last %}
+                {% set image_name = page.header.cover.image|replace({ ('.' ~ image_extension): '' }) %}
+                <div class="project-page__hero-image-container col-md-6">
+                    {{ page.media[page.header.cover.image].derivatives(800, 2800, 400).html('', '', 'project-page__hero-image img-fluid')|raw }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {{ parent() }}
+{% endblock %}

@@ -18,3 +18,28 @@
   display: inline-block;
   line-height: 1em;
 }
+
+.figure-caption {
+  margin-top: $spacer;
+  font-family: $font-family-monospace;
+  font-size: 0.75em;
+}
+
+.browser-mockup {
+  border-radius: 2%;
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.portrait-tablet-mockup,
+.landscape-tablet-mockup {
+  border-radius: 6%;
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.portrait-tablet-mockup {
+  width: 868px;
+}
+
+.landscape-tablet-mockup {
+  width: 1184px;
+}

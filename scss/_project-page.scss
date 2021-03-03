@@ -1,0 +1,43 @@
+.project-page {
+  &__hero {
+    margin-top: $spacer;
+    margin-bottom: $spacer * 3;
+
+    & > .row {
+      align-items: center;
+    }
+  }
+
+  &__hero-text {
+    padding-top: $spacer * 2;
+    padding-bottom: $spacer * 2;
+  }
+
+  &__services {
+    font-family: $font-family-monospace;
+    font-size: 0.75em;
+    margin-bottom: $spacer * 2;
+  }
+
+  .figure {
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 3;
+
+    &--tablet-mockup {
+      text-align: center;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .figure + .figure {
+      margin-top: 0;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__hero-image-container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

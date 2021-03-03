@@ -1,6 +1,6 @@
 {% extends 'partials/base.html.twig' %}
 
-{% set body_classes = page.header.body_classes ~ ' modular-page' %}
+{% set body_classes = body_classes ?? 'modular-page ' ~ page.header.body_classes %}
 
 {% block content %}
     {% if page.content %}
