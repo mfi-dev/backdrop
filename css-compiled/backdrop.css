@@ -4683,6 +4683,11 @@ hr {
   object-fit: cover;
 }
 
+.grav-youtube {
+  padding-top: 0;
+  padding-bottom: 56.25%;
+}
+
 .module {
   padding-top: 4rem;
   padding-bottom: 4rem;
