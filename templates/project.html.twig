@@ -26,7 +26,7 @@
                 {% set image_extension = hero_image|split('.')|last %}
                 {% set image_name = hero_image|replace({ ('.' ~ image_extension): '' }) %}
                 <div class="project-page__hero-image-container col-md-6">
-                    {{ page.media[hero_image].derivatives(800, 2800, 400).html('', '', 'project-page__hero-image img-fluid')|raw }}
+                    {{ page.media[hero_image].derivatives(800, 2800, 400).sizes('(max-width: 767.97px) 100vw, 50vw').html('', '', 'project-page__hero-image img-fluid')|raw }}
                 </div>
             {% endif %}
         </div>
