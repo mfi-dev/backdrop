@@ -1,6 +1,6 @@
 {% extends 'partials/module.html.twig' %}
 
-{% set body_classes = page.header.body_classes ~ ' animation-module animation-module--cube rhythm container-fluid' %}
+{% set body_classes = page.header.body_classes ~ ' animation-module animation-module--' ~ page.header.animation ~ ' rhythm container-fluid' %}
 
 {% block content %}
     <div class="row">
@@ -11,4 +11,7 @@
             {{ content|raw }}
         </div>
     </div>
+    {% if page.header.video %}
+        {{ include('partials/video.html.twig', page.header.video) }}
+    {% endif %}
 {% endblock %}

@@ -37,6 +37,9 @@ $primary: #3C1053;
 // Helpers
 @import "../vendor/bootstrap/scss/helpers";
 
+// Utilities
+@import "../vendor/bootstrap/scss/utilities/api";
+
 // Fonts
 @import "../fonts/spacegrotesk/stylesheet.css";
 

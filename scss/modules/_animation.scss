@@ -2,4 +2,30 @@
   position: relative;
   overflow: hidden;
   background-color: tint-color($green, 95%);
+
+  &--video {
+    & > .video-container {
+      position: absolute;
+      top: 0;
+      left: 67%;
+      width: 33%;
+      height: 100%;
+      display: none;
+    }
+
+    @include media-breakpoint-up(md) {
+      background-color: tint-color($green, 92%);
+
+      & > .video-container {
+        display: block;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      & > .video-container {
+        left: 50%;
+        width: 50%;
+      }
+    }
+  }
 }
