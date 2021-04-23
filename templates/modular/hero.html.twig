@@ -1,8 +1,16 @@
 {% extends 'partials/module.html.twig' %}
 
 {% set body_classes = page.header.body_classes ~ ' hero-module container-fluid' %}
+{% if page.header.dark_background %}
+    {% set body_classes = body_classes ~ ' text-white' %}
+{% endif %}
 
 {% block content %}
+    {% if page.header.background_image %}
+        <div class="hero-module__background-image">
+            {{ page.media[page.header.background_image].derivatives(640, 2560, 640).html()|raw }}
+        </div>
+    {% endif %}
     <div class="row">
         <div class="hero-module__text col-lg-6">
             <h1 class="hero-module__heading display-2">
