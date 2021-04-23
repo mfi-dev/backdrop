@@ -60,12 +60,12 @@
     .video-module {
       grid-column: span 2;
 
-      & + .module {
+      & + .module:not(.contact-module) {
         grid-column: span 2;
       }
 
-      & ~ .image-module + .module,
-      & ~ .video-module + .module {
+      & ~ .image-module + .module:not(.contact-module),
+      & ~ .video-module + .module:not(.contact-module) {
         grid-column: span 1;
       }
     }
