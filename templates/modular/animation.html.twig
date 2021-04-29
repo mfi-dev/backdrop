@@ -14,4 +14,13 @@
     {% if page.header.video %}
         {{ include('partials/video.html.twig', page.header.video) }}
     {% endif %}
+    {% if page.header.animation is sameas('text') and page.header.animation_text %}
+        <div class="text-animation-container">
+            <div class="text-animation">
+                <div class="scroll-left">
+                    {{ page.header.animation_text }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
