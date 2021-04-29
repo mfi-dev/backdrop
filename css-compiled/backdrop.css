@@ -9999,10 +9999,14 @@ hr {
   display: none;
 }
 
+.overlay-bg .hero-module {
+  overflow: hidden;
+}
+
 .hero-module {
   position: relative;
 }
-.hero-module__background-image, .hero-module__overlay-image {
+.hero-module__background-image, .hero-module__overlay-image, .hero-module__background-colorfade {
   position: absolute;
   top: 0;
   left: 0;
@@ -10010,7 +10014,7 @@ hr {
   height: 100%;
   z-index: -2;
 }
-.hero-module__background-image img, .hero-module__overlay-image img {
+.hero-module__background-image img, .hero-module__overlay-image img, .hero-module__background-colorfade img {
   position: absolute;
   top: 0;
   left: 0;
@@ -10019,7 +10023,7 @@ hr {
   object-fit: cover;
 }
 @media (max-width: 991.98px) {
-  .hero-module__background-image::after, .hero-module__overlay-image::after {
+  .hero-module__background-image::after, .hero-module__overlay-image::after, .hero-module__background-colorfade::after {
     content: "";
     position: absolute;
     z-index: 2;
@@ -10038,6 +10042,29 @@ hr {
 }
 .hero-module__overlay-image::after {
   background-color: transparent;
+}
+.hero-module__background-colorfade {
+  z-index: -2;
+  background: #4b0461;
+  background: linear-gradient(90deg, rgba(75, 4, 97, 0.88) 37%, rgba(247, 240, 240, 0.0158438375) 63%);
+  color: rgba(60, 16, 83, 0.12);
+  width: 225%;
+  overflow: hidden;
+  font-size: 44px;
+  opacity: 0.99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: scrollleft 50s linear infinite;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.65);
+}
+.hero-module__background-colorfade::after {
+  background-color: transparent;
+  content: none !important;
+}
+.hero-module__background-colorfade .scroll-left {
+  font-family: "space_grotesk", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  text-shadow: none;
 }
 .hero-module__heading {
   font-weight: bold;
@@ -10076,6 +10103,75 @@ hr {
 @media (max-width: 991.98px) {
   .hero-module__media {
     display: none;
+  }
+}
+.overlay-bg .hero-module .btn-primary {
+  background-color: #d5fa04;
+  border-color: #000;
+  color: #000;
+  font-weight: 600;
+  box-shadow: 1px 5px 5px -5px rgba(0, 0, 0, 0.89);
+}
+.overlay-bg .hero-module .btn-primary:hover {
+  box-shadow: none;
+}
+
+@-webkit-keyframes scrollleft {
+  0% {
+    transform: perspective(65px) rotateY(9deg);
+    color: rgba(60, 16, 83, 0.12);
+  }
+  15% {
+    color: rgba(60, 16, 83, 0.27);
+  }
+  20% {
+    color: rgba(60, 16, 83, 0.32);
+  }
+  24% {
+    color: rgba(60, 16, 83, 0.39);
+  }
+  25% {
+    color: rgba(60, 16, 83, 0.58);
+  }
+  26% {
+    color: rgba(60, 16, 83, 0.46);
+  }
+  50% {
+    transform: perspective(420px) rotateY(9deg);
+    color: rgba(60, 16, 83, 0.38);
+  }
+  100% {
+    transform: perspective(69px) rotateY(9deg);
+    color: rgba(60, 16, 83, 0.12);
+  }
+}
+@keyframes scrollleft {
+  0% {
+    transform: perspective(65px) rotateY(9deg);
+    color: rgba(60, 16, 83, 0.12);
+  }
+  15% {
+    color: rgba(60, 16, 83, 0.27);
+  }
+  20% {
+    color: rgba(60, 16, 83, 0.33);
+  }
+  24% {
+    color: rgba(60, 16, 83, 0.39);
+  }
+  25% {
+    color: rgba(60, 16, 83, 0.58);
+  }
+  26% {
+    color: rgba(60, 16, 83, 0.46);
+  }
+  50% {
+    transform: perspective(420px) rotateY(9deg);
+    color: rgba(60, 16, 83, 0.38);
+  }
+  100% {
+    transform: perspective(69px) rotateY(9deg);
+    color: rgba(60, 16, 83, 0.12);
   }
 }
 .animation-module {

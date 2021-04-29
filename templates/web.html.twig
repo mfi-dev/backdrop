@@ -1,20 +1,5 @@
 {% extends 'modular.html.twig' %}
-
-{% set body_classes = body_classes ?? 'web-page ' ~ page.header.body_classes %}
-{% set hero_image = page.header.hero_image ?? (page.header.cover and page.header.cover.image ? page.header.cover.image : null) %}
 {% block content %}
-    <div class="project-page__hero container-fluid">
-        <div class="row">
-            <div class="project-page__hero-text col-md-6">
-                <h1>{{ page.title }}</h1>
-                {% if page.header.subtitle %}
-                    <p class="lead">{{ page.header.subtitle }}</p>
-                {% endif %}
-                {% if page.header.summary %}
-                    {{ page.header.summary|markdown }}
-                {% endif %}
-            </div>
-        </div>
-    </div>
+
     {{ parent() }}
 {% endblock %}

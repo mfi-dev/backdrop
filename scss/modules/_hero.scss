@@ -1,7 +1,11 @@
+.overlay-bg .hero-module {
+  overflow: hidden;
+}
+
 .hero-module {
   position: relative;
-
-  &__background-image, &__overlay-image {
+  
+  &__background-image, &__overlay-image, &__background-colorfade {
     position: absolute;
     top: 0;
     left: 0;
@@ -42,6 +46,31 @@
     }
   }
 
+  &__background-colorfade {
+      z-index: -2;
+      background: rgb(75,4,97);
+      background: linear-gradient(90deg, rgba(75, 4, 97, 0.88) 37%, rgba(247, 240, 240, 0.0158438375) 63%);
+      color: rgba(60,16,83,.12);
+      width:225%;
+      overflow: hidden;
+      font-size: 44px;
+      opacity: .99;
+      position: absolute;
+      top:0;
+      left: 0;
+      animation: scrollleft 50s linear infinite;
+      text-shadow: 1px 2px 3px rgba(0,0,0,0.65);
+
+    &::after {
+      background-color: transparent;
+      content: none !important;
+    }
+    .scroll-left {
+      font-family: 'space_grotesk', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-shadow:none;
+    }
+  }
+
   &__heading {
     font-weight: bold;
     line-height: 1;
@@ -73,4 +102,36 @@
   p {
     @extend .lead;
   }
+}
+
+.overlay-bg .hero-module .btn-primary {
+  background-color: #d5fa04;
+  border-color: #000;
+  color: #000;
+  font-weight: 600;
+  box-shadow: 1px 5px 5px -5px rgba(0,0,0,0.89);
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+@-webkit-keyframes scrollleft {
+  0% { transform: perspective(65px) rotateY(9deg); color: rgba(60,16,83,.12);}
+  15% {color: rgba(60,16,83,.27);}
+  20% {color: rgba(60,16,83,.32);}
+  24% {color: rgba(60,16,83,.39)}
+  25% {color: rgba(60,16,83,.58);}
+  26% {color: rgba(60,16,83,.46);}
+  50% { transform: perspective(420px) rotateY(9deg); color: rgba(60,16,83,.38);  }
+  100% {  transform: perspective(69px) rotateY(9deg); color: rgba(60,16,83,.12);  }
+}
+@keyframes scrollleft {
+  0% { transform: perspective(65px) rotateY(9deg); color: rgba(60,16,83,.12);}
+  15% {color: rgba(60,16,83,.27);}
+  20% {color: rgba(60,16,83,.33);}
+  24% {color: rgba(60,16,83,.39)}
+  25% {color: rgba(60,16,83,.58);}
+  26% {color: rgba(60,16,83,.46);}
+  50% { transform: perspective(420px) rotateY(9deg); color: rgba(60,16,83,.38);  }
+  100% {  transform: perspective(69px) rotateY(9deg); color: rgba(60,16,83,.12);  }
 }
