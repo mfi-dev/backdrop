@@ -2,7 +2,7 @@
   main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  
+
     & > * {
       grid-column: span 3;
     }
@@ -40,6 +40,14 @@
       & ~ * {
         grid-column: span 1;
       }
+
+      & + .image-module + .image-module {
+        grid-column: span 2;
+      }
+
+      & + .image-module + .image-module + .image-module {
+        grid-column: span 1;
+      }
     }
 
     .contact-module {
@@ -67,6 +75,10 @@
       & ~ .image-module + .module:not(.contact-module),
       & ~ .video-module + .module:not(.contact-module) {
         grid-column: span 1;
+
+        &.image-module {
+          grid-column: span 2;
+        }
       }
     }
 

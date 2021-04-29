@@ -1,3 +1,5 @@
-.mobile-screenshot {
-    max-height: 500px;
+.image-module {
+  @include media-breakpoint-down(md) {
+    padding: var(--bs-gutter-x, 0.75rem);
+  }
 }
