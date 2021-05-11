@@ -43,6 +43,9 @@ form:
         contact_phone:
           type: tel
           label: Phone number
+        contact_extension:
+          type: text
+          label: Phone number extension
         contact_fax:
           type: tel
           label: Fax number

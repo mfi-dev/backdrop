@@ -26,6 +26,9 @@
                         <a href="tel:+1{{ grav.theme.config.contact_phone|regex_replace('/[^0-9]/', '') }}">
                             {{ grav.theme.config.contact_phone }}
                         </a>
+                        {% if grav.theme.config.contact_extension %}
+                            ext. {{ grav.theme.config.contact_extension }}
+                        {% endif %}
                     </p>
                 {% endif %}
             </address>
