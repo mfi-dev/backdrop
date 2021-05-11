@@ -1,7 +1,7 @@
 {% set poster_url = poster and page.media[poster] ? page.media[poster].url() : '' %}
 {% set attributes = autoplay ? 'data-autoplay loop muted playsinline' : 'controls' %}
-{% set label = title ? 'aria-label="' ~ title|e('html_attr') ~ '"' : '' %}
-<video {{ attributes }} {{ label }} class="video video--html" preload="none" poster="{{ poster_url|e('html_attr') }}">
+{% set label = title ? 'aria-label="' ~ title ~ '"' : '' %}
+<video {{ attributes }} {{ label }} class="video video--html" preload="none" poster="{{ poster_url }}">
     {% for source in sources %}
         {% set video = media['user://videos/' ~ source.video] %}
 
@@ -14,7 +14,7 @@
         {% endif %}
 
         {% if video %}
-            <source src="{{ video.url() }}" type="{{ mime_type|e('html_attr') }}">
+            <source src="{{ video.url() }}" type="{{ mime_type }}">
         {% endif %}
 
         This browser does not support the HTML5 video element.

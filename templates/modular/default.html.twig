@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if page.title %}
-        <h2 class="module__heading">{{ page.title|e('html') }}</h2>
+        <h2 class="module__heading">{{ page.title }}</h2>
     {% endif %}
     {{ content|raw }}
     {% if page.header.cta or page.header.featured_video %}

@@ -4,8 +4,8 @@
 
 {% block content %}
     {% if page.title %}
-        <p class="module__kicker">{{ page.header.kicker|e('html') }}</p>
-        <h2 class="module__heading">{{ page.title|e('html') }}</h2>
+        <p class="module__kicker">{{ page.header.kicker }}</p>
+        <h2 class="module__heading">{{ page.title }}</h2>
     {% endif %}
     {{ content|raw }}
     <div class="logo-grid">

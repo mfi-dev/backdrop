@@ -13,3 +13,63 @@ license: Unlicensed
 
 dependencies:
   - { name: grav, version: '>=1.7.3' }
+
+form:
+  fields:
+    contact:
+      type: section
+      title: Contact
+      underline: true
+
+      fields:
+        legal_name:
+          type: text
+          label: Legal business name
+        contact_street:
+          type: text
+          label: Street address
+        contact_street_2:
+          type: text
+          label: Street address 2
+        contact_city:
+          type: text
+          label: City
+        contact_state:
+          type: text
+          label: State
+        contact_zip:
+          type: text
+          label: Zip code
+        contact_phone:
+          type: tel
+          label: Phone number
+        contact_fax:
+          type: tel
+          label: Fax number
+        contact_email:
+          type: email
+          label: Email address
+        social_media:
+          type: list
+          label: Social Media
+          style: vertical
+          fields:
+            .name:
+              type: text
+              label: Platform Name
+            .icon:
+              type: text
+              label: Line Awesome Icon
+            .url:
+              type: text
+              label: Profile URL
+
+    footer:
+      type: section
+      title: Site Footer
+      underline: true
+
+      fields:
+        about:
+          type: editor
+          label: About text

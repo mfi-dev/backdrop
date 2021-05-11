@@ -5,10 +5,10 @@
 {% block content %}
     <div class="service-grid-module__header container-fluid">
         {% if page.header.kicker %}
-            <p class="module__kicker">{{ page.header.kicker|e('html') }}</p>
+            <p class="module__kicker">{{ page.header.kicker }}</p>
         {% endif %}
         {% if page.title %}
-            <h2 class="module__heading">{{ page.title|e('html') }}</h2>
+            <h2 class="module__heading">{{ page.title }}</h2>
         {% endif %}
         {{ content|raw }}
     </div>
@@ -18,7 +18,7 @@
             {% if service_page %}
                 <div class="service-grid__item">
                     <a href="{{ service_page.url }}" class="h2">
-                        {{ service_page.title|e('html') }}
+                        {{ service_page.title }}
                         <i class="las la-long-arrow-alt-right"></i>
                     </a>
                 </div>

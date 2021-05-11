@@ -3,57 +3,54 @@
         <div class="col-sm-6 col-md-8 col-lg-6">
             <address>
                 <p>
-                    <img alt="{{ site.title|e('html_attr') }}" class="media-fusion-logo img-fluid" src="{{ url('theme://images/logo.svg') }}" width="310" height="54"
-                    ><img alt="{{ site.title|e('html_attr') }}" class="tribe-logo img-fluid" src="{{ url('theme://images/pci_logo.svg') }}" width="94" height="77">
+                    <img alt="{{ site.title }}" class="media-fusion-logo img-fluid" src="{{ url('theme://images/logo.svg') }}" width="310" height="54"
+                    ><img alt="Poarch Creek Indians" class="tribe-logo img-fluid" src="{{ url('theme://images/pci_logo.svg') }}" width="94" height="77">
                 </p>
-                <p>
-                    4951 Century Street<br>
-                    Huntsville, AL 35816
-                </p>
-                <p>
-                    <a href="mailto:studio@fusiononline.com">studio@fusiononline.com</a><br>
-                    <a href="tel:+12565323874">(256) 532-3874</a>
-                </p>
+                {% set gtc = grav.theme.config %}
+                {% if gtc.contact_street or gtc.contact_street_2 or gtc.contact_city or gtc.contact_state or gtc.contact_zip %}
+                    <p>
+                        {% if grav.theme.config.contact_street %}
+                            {{ grav.theme.config.contact_street }}<br>
+                        {% endif %}
+                        {% if grav.theme.config.contact_street_2 %}
+                            {{ grav.theme.config.contact_street_2 }}<br>
+                        {% endif %}
+                        {{ grav.theme.config.contact_city }}, {{ grav.theme.config.contact_state }} {{ grav.theme.config.contact_zip }}
+                    </p>
+                {% endif %}
+                {% if (grav.theme.config.contact_phone or grav.theme.config.contact_email) %}
+                    <p>
+                        <a href="mailto:{{ grav.theme.config.contact_email|safe_email }}">
+                            {{ grav.theme.config.contact_email|safe_email }}
+                        </a><br>
+                        <a href="tel:+1{{ grav.theme.config.contact_phone|regex_replace('/[^0-9]/', '') }}">
+                            {{ grav.theme.config.contact_phone }}
+                        </a>
+                    </p>
+                {% endif %}
             </address>
-            <nav class="social-media-nav">
-                <ul class="list-unstyled">
-                    <li>
-                      <a href="https://www.facebook.com/MediaFusionHSV/" aria-label="Media Fusion Facebook Page">
-                        <i class="lab la-facebook" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.youtube.com/mediafusion" aria-label="Media Fusion YouTube channel">
-                        <i class="lab la-youtube" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.instagram.com/mediafusiononline/" aria-label="Media Fusion Instagram profile">
-                        <i class="lab la-instagram" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://twitter.com/MediaFusion_LLC" aria-label="Media Fusion Twitter profile">
-                        <i class="lab la-twitter" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/company/218470" aria-label="Media Fusion LinkedIn page">
-                        <i class="lab la-linkedin" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                </ul>
-            </nav>
+            {% if grav.theme.config.social_media %}
+                <nav class="social-media-nav">
+                    <ul class="list-unstyled">
+                        {% for item in grav.theme.config.social_media %}
+                            <li>
+                                <a href="{{ item.url }}"
+                                    aria-label="{{ item.name }}"
+                                    rel="nofollow"
+                                    target="_blank">
+                                    <i class="lab la-{{ item.icon }}" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            {% endif %}
         </div>
         <div class="col-sm-6 col-md-4 col-lg-6">
             <h2 class="h5">About</h2>
+            {{ grav.theme.config.about|markdown }}
             <p>
-                Media Fusion Studio is a division of <a href="https://www.fusiononline.com">Media Fusion, LLC</a>,
-                an award-winning support services company with over 20 years of experience and several
-                <a href="https://www.fusiononline.com/doing-business">federal contract vehicles</a>.
-            </p>
-            <p>
-                Media Fusion, LLC is owned by the Poarch Band of Creek Indians, a Federally Recognized Indian Tribe.
+                Media Fusion is owned by the Poarch Band of Creek Indians, a federally recognized Indian Tribe.
                 <a href="https://pci-nsn.gov">pci-nsn.gov</a>
             </p>
             <p>
@@ -64,7 +61,7 @@
     <div class="row">
         <div class="col-md-8 col-lg-6">
             <p class="fine-print">
-                &copy; 2021 Media Fusion, LLC</a> &nbsp;&bull;&nbsp; <a href="/privacy">Privacy Policy</a>
+                &copy; 2021 {{ grav.theme.config.legal_name }}</a> &nbsp;&bull;&nbsp; <a href="/privacy">Privacy Policy</a>
             </p>
         </div>
     </div>

@@ -2,7 +2,7 @@
 <html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
 <head>
     <meta charset="utf-8">
-    <title>{% if page.title and not page.home %}{{ page.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    <title>{% if page.title and not page.home %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include 'partials/metadata.html.twig' %}
