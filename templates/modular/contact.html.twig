@@ -9,7 +9,11 @@
                 <h2 class="module__heading">{{ page.title|default('Request a quote') }}</h2>
             {% endif %}
             {{ content|raw }}
-            {{ include('forms/form.html.twig') }}
+            {% if dns_blacklist.isBlacklisted %}
+                <p>Please contact us directly at <a href="mailto:studio@fusiononline.com">mailto:studio@fusiononline.com</a>.</p>
+            {% else %}
+                {{ include('forms/form.html.twig') }}
+            {% endif %}
         </div>
     </div>
 {% endblock %}
