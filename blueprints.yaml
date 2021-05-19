@@ -76,3 +76,13 @@ form:
         about:
           type: editor
           label: About text
+
+    analytics:
+      type: section
+      title: Analytics
+      underline: true
+
+      fields:
+        gtag:
+          type: text
+          label: Google Analytics Measurement ID

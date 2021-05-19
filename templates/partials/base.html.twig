@@ -24,6 +24,18 @@
         {{ assets.css()|raw }}
         {{ assets.js()|raw }}
     {% endblock %}
+
+    {% if grav.theme.config.gtag %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ grav.theme.config.gtag }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ grav.theme.config.gtag }}');
+    </script>
+    {% endif %}
 </head>
 <body class="{% block body_classes %}{{ body_classes }}{% endblock %}">
     <a href="#main" id="skip-nav">Skip to main content</a>
