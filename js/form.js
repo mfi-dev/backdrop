@@ -9,8 +9,9 @@
       var method = form.getAttribute('method');
       var button = document.querySelector('button[type="submit"]', form);
       var buttons = button.parentElement;
-      var spinner = document.createElement('div').setAttribute('class', 'spinner');
+      var spinner = document.createElement('div');
 
+      spinner.setAttribute('class', 'spinner');
       button.setAttribute('disabled', true);
       buttons.append(spinner);
 
@@ -30,7 +31,7 @@
           result.innerHTML = output;
         }
 
-        button.setAttribute('disabled', false);
+        button.removeAttribute('disabled');
         spinner.remove();
       })
       .catch(function (error) {
@@ -38,7 +39,7 @@
           result.innerHTML = 'Error: ' + error;
         }
 
-        button.setAttribute('disabled', false);
+        button.removeAttribute('disabled');
         spinner.remove();
 
         throw new Error(error);
