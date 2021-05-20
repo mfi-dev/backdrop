@@ -1,6 +1,6 @@
 (function () {
   document.addEventListener('DOMContentLoaded', (event) => {
-    var form = document.querySelector('#request-a-quote');
+    var form = document.querySelector('#request-a-quote-form');
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
