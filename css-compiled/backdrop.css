@@ -9759,6 +9759,10 @@ hr {
   margin-bottom: 1rem;
 }
 
+.notices {
+  padding-top: 1rem;
+}
+
 @media (min-width: 768px) {
   .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
     --bs-gutter-x: 1.5rem;
@@ -9827,6 +9831,31 @@ hr {
   width: 1184px;
 }
 
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+.spinner::after {
+  content: "";
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0.1rem;
+  border-radius: 50%;
+  border: 0.075rem solid #3C1053;
+  border-color: #3C1053 transparent #3C1053 transparent;
+  animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 #skip-nav {
   position: absolute;
   top: -4rem;

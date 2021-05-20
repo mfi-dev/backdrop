@@ -43,3 +43,30 @@
 .landscape-tablet-mockup {
   width: 1184px;
 }
+
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 0.1rem;
+    border-radius: 50%;
+    border: 0.075rem solid $primary;
+    border-color: $primary transparent $primary transparent;
+    animation: spinner 1.2s linear infinite;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

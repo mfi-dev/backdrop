@@ -37,6 +37,10 @@ hr {
   margin-bottom: $spacer;
 }
 
+.notices {
+  padding-top: 1rem;
+}
+
 @include media-breakpoint-up(md) {
   .container-fluid {
     --bs-gutter-x: 1.5rem;

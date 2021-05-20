@@ -7,6 +7,12 @@
       var result = document.querySelector('#request-a-quote-result');
       var action = form.getAttribute('action');
       var method = form.getAttribute('method');
+      var button = document.querySelector('button[type="submit"]', form);
+      var buttons = button.parentElement;
+      var spinner = document.createElement('div').setAttribute('class', 'spinner');
+
+      button.setAttribute('disabled', true);
+      buttons.append(spinner);
 
       fetch(action, {
         method: method,
@@ -23,11 +29,17 @@
         if (result) {
           result.innerHTML = output;
         }
+
+        button.setAttribute('disabled', false);
+        spinner.remove();
       })
       .catch(function (error) {
         if (result) {
           result.innerHTML = 'Error: ' + error;
         }
+
+        button.setAttribute('disabled', false);
+        spinner.remove();
 
         throw new Error(error);
       });
