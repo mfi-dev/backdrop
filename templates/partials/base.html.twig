@@ -9,6 +9,7 @@
     {% include 'partials/favicon.html.twig' %}
     {% do assets.addCss('theme://css-compiled/backdrop.css') %}
     {% do assets.addCss('theme://vendor/line-awesome/css/line-awesome.min.css') %}
+    {% do assets.addJs('theme://js/form.js', { group: 'bottom', priority: 104 }) %}
     {% do assets.addJs('theme://vendor/bootstrap/js/dist/dom/event-handler.js', { group: 'bottom', priority: 103 }) %}
     {% do assets.addJs('theme://vendor/bootstrap/js/dist/dom/data.js', { group: 'bottom', priority: 103 }) %}
     {% do assets.addJs('theme://vendor/bootstrap/js/dist/dom/manipulator.js', { group: 'bottom', priority: 103 }) %}
