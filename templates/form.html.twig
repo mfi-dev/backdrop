@@ -1,0 +1,10 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set body_classes = body_classes ?? page.header.body_classes %}
+
+{% block content %}
+    <div class="container-fluid">
+        {{ content|raw }}
+        {% include "forms/form.html.twig" %}
+    </div>
+{% endblock %}
