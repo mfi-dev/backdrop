@@ -1,0 +1,15 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set body_classes = body_classes ?? page.header.body_classes %}
+
+{% block content %}
+    <div class="container-fluid">
+        {{ content|raw }}
+        {% if dns_blacklist.isBlacklisted %}
+            <p>Please contact us directly at <a href="mailto:studio@fusiononline.com">mailto:studio@fusiononline.com</a>.</p>
+        {% else %}
+            <div id="request-a-quote-result"></div>
+            {% include "forms/form.html.twig" %}
+        {% endif %}
+    </div>
+{% endblock %}
